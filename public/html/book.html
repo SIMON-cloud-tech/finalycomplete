@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your House</title>
+  <!-- Link to external CSS -->
+  <link rel="stylesheet" href="../css/book.css">
+</head>
+<body>
+
+  <div class="bookingform">
+    <h2 class="form-title">Complete Your Booking</h2>
+
+    <!-- This section shows the selected house -->
+    <div class="house-preview" id="housePreview">
+      <p>Loading your selected house...</p>
+    </div>
+
+    <form id="bookForm">
+      <label for="clientName">Full Name</label>
+      <input type="text" id="clientName" placeholder="Enter your full name" required />
+
+      <label for="clientEmail">Email Address</label>
+      <input type="email" id="clientEmail" placeholder="you@example.com" required />
+
+      <label for="clientPassword">Create Password</label>
+      <input type="password" id="clientPassword" placeholder="For future logins" required />
+
+      <!-- Price is now READ-ONLY – auto-filled from the selected house -->
+      <label for="price">Price (KES)</label>
+      <input type="text" id="price" readonly />
+
+      <button type="submit" class="book-btn">Confirm & Proceed to Payment</button>
+    </form>
+    <p id="errorMessage"></p>
+  </div>
+
+  <script src="../js/book.js"></script>
+   <script src="../js/toast.js"></script>
+</body>
+</html>

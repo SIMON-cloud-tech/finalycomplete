@@ -1,0 +1,137 @@
+/* Form styling */
+.listing-form {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  font-family: "Segoe UI", sans-serif;
+}
+
+.listing-form .form-row {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 15px;
+}
+
+.listing-form label {
+  font-weight: 600;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+.listing-form input,
+.listing-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+}
+.listing-form select{
+  padding: 10px;
+  font-size: 14px;
+  transition: border-color 0.2s;
+  border-radius: 2px;
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, 0.274);
+}
+.listing-form input:focus,
+.listing-form textarea:focus {
+  border-color: #007bff;
+  outline: none;
+}
+
+.listing-form button {
+  background: #007bff;
+  color: #fff;
+  font-weight: 600;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.listing-form button:hover {
+  background: #0056b3;
+}
+
+/* Search bar styling */
+.search-bar {
+  display: flex;
+  gap: 10px;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.search-bar button {
+  padding: 10px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.search-bar button:hover {
+  background: #0056b3;
+}
+
+/* Table styling */
+.listings-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.listings-table th,
+.listings-table td {
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: left;
+}
+
+.listings-table th {
+  background: #f8f9fa;
+  font-weight: 600;
+}
+
+/* Grid styling */
+.house-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+
+.house-card {
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.house-card:hover {
+  transform: translateY(-4px);
+}
+
+.house-card img {
+  width: 100%;
+  height: 120px;
+  object-fit: cover;
+}
+
+.house-info {
+  padding: 10px;
+  font-size: 14px;
+}

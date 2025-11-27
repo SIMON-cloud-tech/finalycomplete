@@ -1,0 +1,64 @@
+[
+  {
+    "id": 1,
+    "units": 10,
+    "landlordId": "L001",
+    "unit": "2 Bedroom",
+    "price": 15000,
+    "description": "A world class house with studio, well spaced, ideal for couples",
+    "imagePath": "https://images.unsplash.com/photo-1560185127-6ed189bf02f4",
+    "location": "Kakamega"
+  },
+  {
+    "id": 2,
+    "units": 8,
+    "landlordId": "L002",
+    "unit": "Studio",
+    "price": 12000,
+    "description": "Compact studio apartment ideal for students or single professionals",
+    "imagePath": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
+    "location": "Mumias"
+  },
+  {
+    "id": 3,
+    "units": 12,
+    "landlordId": "L003",
+    "unit": "Apartment",
+    "price": 22000,
+    "description": "Spacious apartment with balcony and modern kitchen, perfect for families",
+    "imagePath": "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
+    "location": "Nairobi"
+  },
+  {
+    "id": 4,
+    "units": 6,
+    "landlordId": "L004",
+    "unit": "Townhouse",
+    "price": 18000,
+    "description": "Townhouse with private garden and parking space",
+    "imagePath": "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
+    "location": "Kisumu"
+  },
+  {
+    "id": 1763791471698,
+    "landlordId": "L005",
+    "unit": "3-Bedroom",
+    "units": 6,
+    "location": "Nairobi",
+    "price": 8000,
+    "description": "A luxurious world class 3 bedroom house with nearnesss to social amenities like hopsitals, water and electricity",
+    "imagePath": "/assets/uploads/2_1763791471601.jpg",
+    "createdAt": "2025-11-22T06:04:31.698Z"
+  },
+  {
+    "id": 1763824347790,
+    "landlordId": "L006",
+    "unit": "Bedsitet",
+    "units": 3,
+    "location": "Nairobi",
+    "price": 6000,
+    "description": "A luxurious hotel",
+    "imagePath": "/assets/uploads/2_1763824347718.jpg",
+    "createdAt": "2025-11-22T15:12:27.790Z"
+  }
+]

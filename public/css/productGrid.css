@@ -1,0 +1,87 @@
+/* Product Grid Container */
+.product-grid {
+  display: flex;                  /* horizontal layout */
+  gap: 20px;                      /* consistent spacing between cards */
+  margin: 20px auto;
+  padding: 0 10px;
+  overflow-x: auto;               /* allow horizontal scroll */
+  scroll-behavior: smooth;        /* smooth scroll transitions */
+  scroll-snap-type: x mandatory;  /* snap cards fully into view */
+}
+
+/* Individual House Card */
+.house-card {
+  flex: 0 0 auto;                 /* prevent shrinking, keep cards side by side */
+  width: 300px;                   /* base width */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+  padding: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  scroll-snap-align: start;       /* snap each card to start */
+}
+
+.house-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.18);
+}
+
+.house-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+/* Responsive Layouts: 3-2-1 cards */
+@media (min-width: 1024px) {
+  .house-card { width: 30%; }     /* 3 cards per row */
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  .house-card { width: 45%; }     /* 2 cards per row */
+}
+@media (max-width: 767px) {
+  .house-card { width: 90%; }     /* 1 card per row */
+}
+
+/* Text Styling */
+.price {
+  font-weight: 600;
+  color: #007bff;
+  margin: 12px 0 6px;
+  font-size: 16px;
+}
+
+.location {
+  color: #555;
+  font-size: 14px;
+}
+
+.description {
+  font-size: 14px;
+  color: #333;
+  margin-top: 10px;
+  line-height: 1.4;
+}
+
+/* Expanded Header (if used) */
+.expanded-header {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  font-size: 22px;
+  cursor: pointer;
+  color: #333;
+  font-weight: bold;
+  transition: color 0.2s ease;
+}
+
+.close-btn:hover {
+  color: #d00;
+}

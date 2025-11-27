@@ -1,0 +1,111 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    font-family: 'Times New Roman', Times, serif;
+}
+.setup{
+    width: 600px;
+    margin-top: 5%;
+    padding: 10px 10px;
+}
+.setup h2{
+    text-align: center;
+}
+#setupMessage{
+  position: relative;
+}
+#clientForm h3{
+    text-align: center;
+    padding: 5px 8px;
+    color: black;
+    width: 100%;
+}
+#clientForm, #loginForm, #activationForm{
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    color: #333;
+    box-shadow: 1px 2px 3px 5px rgba(0, 0, 0, 0.103);
+    padding: 20px 10px;
+    width: 100%;
+    gap: 5px;
+    max-width: 600px;
+    border-radius: 5px;
+}
+#clientForm input, #loginForm input, #activationForm input{
+    padding: 10px 20px;
+    border-radius: 2px;
+    background-color: transparent;
+    border: 1px solid rgba(128, 128, 128, 0.253);
+    line-height: 1rem;
+}
+button{
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    width: max-content;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    background-color: rgba(2, 130, 250, 0.705);
+    transition: 0.5s;
+}
+button:hover{
+    background-color: rgb(2, 130, 250);
+}
+
+/*Client dashboard*/
+.client-dashboard h3{
+  font-style: italic;
+  font-weight: bold;
+  font-size: 30px;
+}
+.client-dashboard{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.171);
+  width:max-content ;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 30px;
+  border-radius: 12px;
+  margin: 20px auto;
+}
+.table table{
+  border-collapse: collapse;
+}
+table thead tr{
+  background-color:rgba(37, 102, 163, 0.815);
+  width: 100%;
+}
+table thead tr th{
+  padding: 10px 30px;
+  font-size: 20px;
+  color: white;
+}
+table tbody tr{
+  border-bottom: 1px solid rgba(128, 128, 128, 0.459);
+}
+table tbody  tr td{
+  padding: 10px 30px;
+  font-size: 18px;
+  color: #333;
+}
+table tbody tr:nth-of-type(odd){
+  background-color: antiquewhite;
+}
+table tbody tr:nth-of-type(even){
+  background-color: rgba(255,255,255,0.2);
+}
+table tbody tr:hover{
+  background-color: rgba(21, 159, 214, 0.527);
+  transition: 0.6s;
+}

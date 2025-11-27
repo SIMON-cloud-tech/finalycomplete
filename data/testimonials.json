@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "name": "Jane Doe",
+    "feedback": "This platform has transformed how I manage my properties.",
+    "date": "21/11/2025 - 9:00am"
+  },
+  {
+    "id": 2,
+    "name": "John Smith",
+    "feedback": "Elegant dashboard and smooth workflows. Highly recommended!",
+    "date": "21/11/2025 - 9:30am"
+  }
+]

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="../css/client.css">
+</head>
+<body>
+  <div class="setup">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <label>Email Address:</label>
+      <input type="email" id="loginEmail" required><br><br>
+
+      <!-- Password with eye icon -->
+      <label>Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="loginPassword" required>
+        <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+      </div>
+      
+      <button type="submit">Login</button>
+    </form>
+    <div id="loginMessage"></div>
+  </div>
+
+  <!-- Load external JS -->
+  <script src="../js/login.js"></script>
+   <script src="../js/toast.js"></script>
+</body>
+</html>

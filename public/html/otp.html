@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Password Reset Flow</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px;
+    }
+
+    h2 {
+      margin-bottom: 20px;
+    }
+
+    form {
+      margin-bottom: 30px;
+    }
+
+    input[type="email"], input[type="password"] {
+      width: 300px;
+      padding: 10px;
+      margin: 10px 0;
+      border: 2px solid #ccc;
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+
+    .otp-container {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 0;
+    }
+
+    .otp-input {
+      width: 50px;
+      height: 50px;
+      text-align: center;
+      font-size: 1.5rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+    }
+
+    .otp-input:focus {
+      border-color: #007bff;
+    }
+
+    button {
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Step 1: Email Input -->
+  <h2>Forgot Password</h2>
+  <form id="emailForm">
+    <input type="email" placeholder="Enter your email address" required>
+    <button type="submit">Send OTP</button>
+  </form>
+
+  <!-- Step 2: OTP Boxes -->
+  <div id="otpSection" class="hidden">
+    <h2>Enter OTP</h2>
+    <div class="otp-container">
+      <input type="text" maxlength="1" class="otp-input">
+      <input type="text" maxlength="1" class="otp-input">
+      <input type="text" maxlength="1" class="otp-input">
+      <input type="text" maxlength="1" class="otp-input">
+      <input type="text" maxlength="1" class="otp-input">
+      <input type="text" maxlength="1" class="otp-input">
+    </div>
+  </div>
+
+  <!-- Step 3: New Password Form -->
+  <div id="newPasswordSection" class="hidden">
+    <h2>Set New Password</h2>
+    <form id="passwordForm">
+      <input type="password" placeholder="Enter new password" required>
+      <button type="submit">Update Password</button>
+    </form>
+  </div>
+  <script src="../js/otp.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>

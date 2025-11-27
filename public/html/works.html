@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>How the System Works</title>
+  <link rel="stylesheet" href="../css/works.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+</head>
+<body>
+      <nav class="navbar">
+    <div class="logo">
+      <img loading="lazy" src="../assets/flavicon.jpg" alt="SR Logo">
+    </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul class="menu" id="menu">
+      <li  class="has-submenu">
+        <a href="#">HOME </a>
+        <ul class="submenu">
+            <li><a href="../html/set-up.html">Set up</a></li>
+            <li><A href="../html/privacy.html">PRIVACY POLICY</A></li>
+        </ul>
+    </li>
+    <li><a href="../html/shop.html">LISTINGS</a></li>
+        <li><a href="../html/works.html">HOW IT WORKS</a></li>
+            <li class="has-submenu">
+              <a href="#">PARTNERS</a>
+            <ul class="submenu">
+              <li><a href="../html/client-login.html">Clients</a></li>
+              <li><a href="../html/landlordlogin.html">Landlords</a></li>
+              <li><a href="../html/business.html">Admin</a></li>
+            </ul>
+            </li>
+            <li><a href="../html/contact.html">CONTACT</a></li>
+        </ul>
+    </li>
+    </ul>
+  </nav>
+  <div class="works-page">
+    <header>
+      <h1>How the Real Estate Management System Works</h1>
+      <p class="intro">
+        This platform connects businesses, landlords, and clients into one seamless ecosystem. 
+        Every action is secure, auditable, and designed for transparency.
+      </p>
+    </header>
+
+    <section class="works-section">
+      <h2>1. Security & Data Protection</h2>
+      <p>
+        The system is built with a privacy-first approach. All inputs are validated and sanitized 
+        to prevent XSS or injection attacks. Passwords are hashed before storage, and sensitive 
+        credentials (like M-Pesa and SendGrid keys) are loaded securely from environment variables. 
+        Every transaction is logged in JSON files, ensuring auditability and traceability.
+      </p>
+    </section>
+
+    <section class="works-section">
+      <h2>2. Business Dashboard</h2>
+      <p>
+        Administrators oversee the entire platform through the business dashboard. They can monitor 
+        listings, landlords, payments, bookings, valuation, revenue, and analytics. This ensures 
+        profitability, compliance, and operational transparency.
+      </p>
+    </section>
+
+    <section class="works-section">
+      <h2>3. Landlord Onboarding & Payouts</h2>
+      <p>
+        Landlords register securely and access their personalized dashboard. They can manage property 
+        listings, track payments, and view analytics. When clients make payments, the system calculates 
+        commissions and remits landlord payouts via M-Pesa. Payouts can be directed to Paybill, Till, 
+        or directly to a phone number using B2B or B2C integrations. Balances are updated instantly 
+        in <code>landlords.json</code>, ensuring landlords always see accurate earnings.
+      </p>
+    </section>
+
+    <section class="works-section">
+      <h2>4. Client Journey</h2>
+      <p>
+        Clients browse available houses in the shop using a responsive, auto-sliding grid. They can 
+        book properties, confirm details, and proceed to checkout. Bookings are validated and stored 
+        in <code>bookings.json</code>, ensuring accuracy and trust. Clients receive instant feedback 
+        on successful payments, along with confirmation emails.
+      </p>
+    </section>
+
+    <section class="works-section">
+      <h2>5. Payment Flow</h2>
+      <p>
+        During checkout, the system validates the booking, calculates commission, and remits landlord 
+        payouts via M-Pesa. Transactions are recorded in <code>payments.json</code>, <code>sales.json</code>, 
+        and <code>landlords.json</code>. This ensures financial accountability. Clients see immediate 
+        confirmation, while landlords’ balances update in real time.
+      </p>
+    </section>
+
+    <section class="works-section">
+      <h2>6. Auditability & Transparency</h2>
+      <p>
+        Every step — from registration to payment — is recorded. JSON-based storage ensures that 
+        auditors and collaborators can trace actions clearly. This design enforces accountability 
+        and builds trust across all stakeholders. The system is designed to be scalable, secure, 
+        and transparent for long-term growth.
+      </p>
+      <p>
+        This data is thereafter migrated to the cloud via a non-relational database where it is stored to be used by the system at any time of need
+      </p>
+    </section>
+  </div>
+      <footer>
+      <p>&copy; Copyrights <span id="year"></span> Real Estate Management Platform. All rights reserved.</p>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>

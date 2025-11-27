@@ -1,0 +1,92 @@
+
+#testimonials {
+  text-align: center;
+  margin: 40px auto;
+  font-family: "Segoe UI", sans-serif;
+}
+#testimonials p{
+  font-size: 18px;
+}
+.testimonialsGrid {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-card {
+  max-width: 50%;
+  width: 100%;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  padding: 20px;
+  text-align: left;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.testimonial-card h3 {
+  margin: 0 0 10px;
+  color: #007bff;
+}
+
+.testimonial-card p {
+  font-size: 15px;
+  line-height: 1.5;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #222;
+}
+
+.testimonial-card small {
+  color: #666;
+  font-size: 12px;
+}
+
+.feedback-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: #007bff;
+  color: #fff;
+  width: max-content;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  border-radius: 20px 0 20px 0px;
+}
+
+.feedback-btn:hover {
+  background: #0056b3;
+}
+
+.feedback-form {
+  max-width: 400px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.feedback-form input,
+.feedback-form textarea {
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.feedback-form button {
+  background: #28a745;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.feedback-form button:hover {
+  background: #218838;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

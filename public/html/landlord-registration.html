@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landlord Registration Form</title>
+  <link rel="stylesheet" href="../css/styles.css">
+  <!-- Font Awesome for eye icon -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+  <div class="form">
+    <div class="form-header">
+      <h4>Landlord Registration</h4>
+    </div>
+
+    <form id="joinForm">
+      <!-- Name -->
+      <label>Name</label>
+      <input type="text" id="name" required>
+
+      <!-- Email -->
+      <label>Email</label>
+      <input type="email" id="email" required>
+
+      <!-- Password with eye icon -->
+      <label>Password</label>
+      <div class="password-wrapper">
+        <input type="password" id="password" required>
+        <i class="fa-solid fa-eye toggle-password" id="togglePassword"></i>
+      </div>
+
+      <!-- Phone -->
+      <label>Phone</label>
+      <input type="tel" id="phone" placeholder="+254700000000" required>
+
+      <!-- Role (hidden, always landlord) -->
+      <input type="hidden" id="role" value="landlord">
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p>Already registered? Login <a href="landlordlogin.html">here</a></p>
+  </div>
+
+  <script src="../js/register.js"></script>
+   <script src="../js/toast.js"></script>
+</body>
+</html>

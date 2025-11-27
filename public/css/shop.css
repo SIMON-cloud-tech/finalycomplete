@@ -1,0 +1,130 @@
+/* ===========================
+   Shop Page Styles (shop.css)
+   =========================== */
+
+/* Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: 'Segoe UI', sans-serif; background: #f4f4f4; color: #333; }
+
+/* Searchbar */
+header {
+  background: #0077cc;
+  padding: 20px;
+}
+.searchbar {
+  display: flex;
+  max-width: 600px;
+  margin: 0 auto;
+  gap: 10px;
+}
+.searchbar input {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+}
+.searchbar button {
+  padding: 12px 20px;
+  border: none;
+  background: #005fa3;
+  color: #fff;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+}
+.searchbar button:hover {
+  background: #004a82;
+}
+
+/* House Grid */
+.house-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+  padding: 40px;
+}
+
+/* Card */
+.house-card {
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+  min-height: 360px; /* ensures space for button */
+}
+.house-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+}
+.house-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+.card-info {
+  padding: 16px;
+  flex-grow: 1; /* pushes button down */
+}
+.card-info h3 {
+  font-size: 20px;
+  margin-bottom: 8px;
+  color: #222;
+}
+.card-info .location {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 6px;
+}
+.card-info .price {
+  font-size: 18px;
+  color: #0077cc;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+.card-info p {
+  font-size: 14px;
+  color: #444;
+}
+
+/* Book Button — permanently visible */
+.book-btn {
+  margin: 12px 16px 16px 16px;
+  background: #0077cc;
+  color: #fff;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  align-self: flex-start;
+  transition: background 0.3s ease;
+}
+.book-btn:hover {
+  background: #005fa3;
+}
+
+/* Expanded details view */
+.house-card.expanded {
+  grid-column: 1 / -1; /* span full width */
+}
+.house-card.expanded img {
+  height: 300px;
+}
+.house-card.expanded .card-info {
+  padding: 20px;
+}
+.house-card.expanded .card-info h3 {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.house-card.expanded .card-info p {
+  font-size: 15px;
+  margin-bottom: 8px;
+}

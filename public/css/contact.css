@@ -1,0 +1,155 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+}
+
+.contact-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.contact-page h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+.contact-page .intro {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 16px;
+  color: #555;
+}
+
+.contact-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.contactform {
+  flex: 2;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.contactform label {
+  display: block;
+  color: #333;
+  margin: 10px 0 5px;
+  font-weight: bold;
+}
+
+.contactform input,
+.contactform textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.contactform textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.submit-btn {
+  background: #007bff;
+  color: #fff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: #0056b3;
+}
+
+.address {
+  flex: 1;
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.address h2 {
+  margin-top: 0;
+  color: #007bff;
+}
+
+.address p {
+  font-size: 14px;
+  color: #555;
+}
+/* Modal overlay */
+.modal {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0,0,0,0.5);
+}
+
+/* Modal content box */
+.modal-content {
+  background: #fff;
+  margin: 15% auto;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.modal-content h2 {
+  color: #007bff;
+  margin-top: 0;
+}
+
+.modal-content p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* Close button */
+.close-btn {
+  float: right;
+  font-size: 24px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #333;
+}
+
+.close-btn:hover {
+  color: #d00;
+}
+
+@media (max-width: 600px) {
+  .contact-container{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+  }
+  .address, .contactform{
+    width: 90%;
+  }
+}

@@ -1,0 +1,12 @@
+[
+  {
+    "saleId": "S1763453769855",
+    "bookingId": "B003",
+    "client": "Patrick",
+    "landlord": "Jane Doe",
+    "amount": "KES 30000",
+    "commission": "KES 600",
+    "landlordShare": "KES 29400",
+    "timestamp": "2025-11-18T08:16:09.855Z"
+  }
+]

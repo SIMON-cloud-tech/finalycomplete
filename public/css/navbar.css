@@ -1,0 +1,211 @@
+/* RESET */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", 'Times New Roman', Times, serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* NAVBAR BASE */
+.navbar{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center; /* menu centered */
+  background: #000000;
+  padding: 3rem  4rem;
+  position: sticky;
+  border-bottom: 1px solid rgba(168, 44, 13, 0.678);
+  z-index: 100;
+}
+
+/* LOGO LEFT */
+.logo {
+  position: absolute;
+  left: 2rem;
+}
+.logo img {
+  height: 40px;
+  width: auto;
+  cursor: pointer;
+  border-radius: 20px;
+}
+
+/* MENU CENTER */
+.menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.menu li {
+  position: relative;
+  text-transform: uppercase;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: #ccc;
+  transition: 0.5s;
+  text-decoration: 1px solid rgba(218, 165, 32, 0.356) underline;
+}
+
+/* SUBMENU BASE */
+.submenu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: #080808;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  border: 1px solid  rgba(252, 252, 252, 0.123);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px);
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.submenu li {
+  position: relative;
+  text-transform: uppercase;
+}
+
+.submenu a {
+  display: block;
+  padding: 0.7rem 1rem;
+  color: #ddd;
+  font-size: 0.95rem;
+}
+
+.submenu a:hover {
+  color: #fff;
+}
+
+/* Hover animation */
+.menu li:hover > .submenu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Nested submenu alignment */
+.submenu .submenu {
+  top: 0;
+  left: 100%;
+  margin-left: 5px;
+}
+
+/* Flip direction if near screen edge */
+.submenu.align-left {
+  left: auto;
+  right: 100%;
+  margin-left: 0;
+  margin-right: 5px;
+}
+
+/* MENU TOGGLE */
+.menu-toggle {
+  display: none;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  position: absolute;
+  left: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: transform 0.3s ease;
+}
+/* RESPONSIVE */
+@media (max-width: 992px) {
+  .menu-toggle {
+    display: block;
+  }
+
+  .logo {
+    left: auto;
+    right: 2rem;  border-radius: 6px;
+  }
+
+  .menu {
+    flex-direction: column;
+    position: absolute;
+    top: 70px;
+    left: -100%;
+    width: 100%;
+    background: #000000;
+    transition: left 0.3s ease;
+    padding: 1rem 0;
+  }
+
+  .menu.active {
+    left: 0;
+  } 
+
+  .menu li {
+    width: 100%;
+  }
+
+  .menu a {
+    display: block;
+    width: 100%;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .submenu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    display: none;
+    background: #000000;
+    padding-left: 1rem;
+    transform: none;
+  }
+
+  .submenu.show {
+    display: block;
+  }
+
+  .submenu .submenu {
+    padding-left: 1.5rem;
+  }
+}
+@media (max-width: 450px) {
+  .logo{
+    right: 2rem;
+    left: auto;
+  }
+}
+
+
+
+.section-border{
+  border: 1px solid rgba(128, 128, 128, 0.123);
+}
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  background-color: black;
+  color: white;
+}
+footer p{
+  padding: 20px 10px;
+}

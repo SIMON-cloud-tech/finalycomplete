@@ -1,0 +1,129 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate</title>
+       <link rel="stylesheet" href="css/styles.css">
+    <link  rel="stylesheet" href="css/navbar.css">
+    <link rel="stylesheet" href="css/testimonials.css">
+    <link rel="stylesheet" href="css/productGrid.css">
+  </head>
+  <body>
+  <nav class="navbar">
+    <div class="logo">
+      <img loading="lazy" src="assets/flavicon.jpg" alt="SR Logo">
+    </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul class="menu" id="menu">
+      <li  class="has-submenu">
+        <a href="#">HOME </a>
+        <ul class="submenu">
+            <li><a href="html/set-up.html">Set up</a></li>
+            <li><A href="html/privacy.html">PRIVACY POLICY</A></li>
+        </ul>
+    </li>
+    <li><a href="html/shop.html">LISTINGS</a></li>
+        <li><a href="html/works.html">HOW IT WORKS</a></li>
+            <li class="has-submenu">
+              <a href="#">PARTNERS</a>
+            <ul class="submenu">
+              <li><a href="html/client-login.html">Clients</a></li>
+              <li><a href="html/landlordlogin.html">Landlords</a></li>
+              <li><a href="html/business.html">Admin</a></li>
+            </ul>
+            </li>
+            <li><a href="html/contact.html">CONTACT</a></li>
+        </ul>
+    </li>
+    </ul>
+  </nav>
+  <section class="overlay">
+    <div class="overlay-text">
+      <p>Welcome to our housing platform where we relieve you of the burden of having to struggle to find an house. From paying landlords to delivering best quality houses for our tenants at a click of a button.</p>
+      <h3><i>Join us today as</i></h3>
+      <div class="buttons">
+        <button id="tenant"><A href="html/shop.html">Tenant</A></button>
+        <button id="landlord"><a href="html/landlord-registration.html" target="_blank">Landlord</a></button>
+      </div>
+    </div>
+  </section>
+  <hr class="section-border">
+<section class="about">
+  <h2>About Us</h2>
+  <p>
+    We are dedicated to building secure, scalable, and user‑friendly platforms that empower communities and businesses to thrive. 
+    Our mission is to combine innovation with integrity — delivering solutions that are not only technologically advanced but also 
+    transparent, auditable, and designed with people in mind. From real estate to logistics, education, and beyond, we craft systems 
+    that simplify complexity, foster trust, and create lasting impact.
+  </p>
+</section>
+<hr class="section-border">
+
+<!---Product grid here------>
+<section id="productGrid" class="product-grid"></section>
+
+<hr class="section-border">
+  <section class="contact">
+    <h1>CONTACT US</h1>
+    <p><i>We always respond to our clients in minutes</i></p>
+    <hr class="section-divider">
+    <div class="contact-container">
+      <div class="contactform">
+        <form id="contactForm">
+          <label>Name</label>
+          <input type="text" id="name" placeholder="Full Name" required />
+          <label>Email</label>
+          <input type="text" id="email" placeholder="Email Address" required />
+          <label>Comment</label>
+          <textarea id="comment" placeholder="Write your comments" required></textarea>
+          <label style="color: #333;">Enquiry</label>
+          <textarea id="enquiry" placeholder="Write your enquiry" required> </textarea>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+<div class="address">
+  <p>
+    We’re here to answer your questions and help you find the right solutions.
+    Reach us using the details below.
+  </p>
+  <ul class="contact-list">
+    <li>
+      <span class="icon">&#128205;</span> <!-- 📍 Location pin -->
+      <b>Location:</b> Kakamega, Kenya
+    </li>
+    <li>
+      <span class="icon">&#128222;</span> <!-- ☎ Telephone receiver -->
+      <b>Phone:</b> +254 700 123 456
+    </li>
+    <li>
+      <span class="icon">&#128231;</span> <!-- ✉ Envelope -->
+      <b>Email:</b> info@mysite.com
+    </li>
+    <li>
+      <span class="icon">&#127760;</span> <!-- 🌐 Globe -->
+      <b>Website:</b> <a href="#" target="_blank">www.realestates.com</a>
+    </li>
+  </ul>
+</div>
+    </div>
+    </section>
+  <hr class="section-border">
+  <section id="testimonials">
+    <h1><i>OUR CLIENTELE</i></h1>
+    <p>Discover what our customers have to say about us</p>
+  <div class="testimonialsGrid"></div>
+</section>
+<hr class="section-border">
+  <footer>
+    <p>&copy; COPYRIGHTS  <span id="year"></span> REAL ESTATE MANAGEMENT PLATFORM ALL RIGHTS RESERVED</p>
+  </footer>
+<script src="js/navbar.js"></script>
+<script src="js/contact.js"></script>
+<script src="js/productGrid.js"></script>
+<script src="js/testimonials.js"></script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us</title>
+  <link rel="stylesheet" href="../css/contact.css" />
+  <link rel="stylesheet" href="../css/navbar.css" />
+</head>
+<body>
+      <nav class="navbar">
+    <div class="logo">
+      <img loading="lazy" src="../assets/flavicon.jpg" alt="SR Logo">
+    </div>
+    <div class="menu-toggle" id="menu-toggle">☰</div>
+
+    <ul class="menu" id="menu">
+      <li  class="has-submenu">
+        <a href="#">HOME </a>
+        <ul class="submenu">
+            <li><a href="../html/set-up.html">Set up</a></li>
+            <li><A href="../html/privacy.html">PRIVACY POLICY</A></li>
+        </ul>
+    </li>
+    <li><a href="../html/shop.html">LISTINGS</a></li>
+        <li><a href="../html/works.html">HOW IT WORKS</a></li>
+            <li class="has-submenu">
+              <a href="#">PARTNERS</a>
+            <ul class="submenu">
+              <li><a href="../html/client-login.html">Clients</a></li>
+              <li><a href="../html/landlordlogin.html">Landlords</a></li>
+              <li><a href="../html/business.html">Admin</a></li>
+            </ul>
+            </li>
+            <li><a href="../html/contact.html">CONTACT</a></li>
+        </ul>
+    </li>
+    </ul>
+  </nav>
+  <div class="contact-page">
+    <h1>Contact Us</h1>
+    <p class="intro">
+      Have questions, feedback, or an enquiry? Fill out the form below and we’ll get back to you.
+    </p>
+
+    <div class="contact-container">
+      <div class="contactform">
+        <form id="contactForm">
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Full Name" required />
+
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Email Address" required />
+
+          <label for="comment">Comment</label>
+          <textarea id="comment" placeholder="Write your comments" required></textarea>
+
+          <label for="enquiry">Enquiry</label>
+          <textarea id="enquiry" placeholder="Write your enquiry" required></textarea>
+
+          <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+      </div>
+
+      <div class="address">
+        <h2>Our Address</h2>
+        <p>We’re here to help you. Your enquiry will be sent securely to our business team and a confirmation email will be sent to you.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Success Modal -->
+  <div id="successModal" class="modal">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <h2>Message Sent!</h2>
+      <p>Thank you for contacting us. We’ve received your enquiry and will respond shortly.</p>
+    </div>
+  </div>
+      <footer>
+      <p>&copy; Copyrights <span id="year"></span> Real Estate Management Platform. All rights reserved.</p>
+    </footer>
+    <script>
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+  <script src="../js/contact.js"></script>
+  <script src="../js/toast.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f9f9f9;
+  color: #333;
+  line-height: 1.6;
+}
+
+.privacy-page {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+header h1 {
+  color: #007bff;
+  margin-bottom: 10px;
+}
+
+header .intro {
+  font-size: 16px;
+  color: #555;
+}
+
+.privacy-section {
+  background: #fff;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.privacy-section h2 {
+  color: #007bff;
+  margin-top: 0;
+}
+
+.privacy-section p {
+  font-size: 14px;
+  color: #444;
+}
+
+footer {
+  text-align: center;
+  margin-top: 40px;
+  font-size: 14px;
+  color: #777;
+}
