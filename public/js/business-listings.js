@@ -1,41 +1,59 @@
+// public/js/business-listings.js
 document.addEventListener("DOMContentLoaded", () => {
+  const listingsBtn = document.querySelector('li[data-content="Listings"]');
   const contentArea = document.getElementById("content-area");
-  const listingsItem = document.querySelector('li[data-content="Listings"]');
 
-  listingsItem.addEventListener("click", async () => {
+  if (listingsBtn) {
+    listingsBtn.addEventListener("click", loadListings);
+  }
+
+  async function loadListings() {
+    contentArea.innerHTML = "<p>Loading listings...</p>";
+
     try {
       const res = await fetch("/api/listings");
-      const data = await res.json();
+      const listings = await res.json();
 
-      let tableHTML = `
+      if (!Array.isArray(listings)) {
+        contentArea.innerHTML = "<p>Error loading listings.</p>";
+        return;
+      }
+
+      let html = `
         <h2>Listings</h2>
-        <table>
+        <table class="data-table">
           <thead>
             <tr>
               <th>Landlord</th>
               <th>Unit Type</th>
-              <th>Units</th>
+              <th>No. of Units</th>
               <th>Price (KSh)</th>
             </tr>
           </thead>
           <tbody>
       `;
 
-      data.forEach(item => {
-        tableHTML += `
+      listings.forEach((l) => {
+        html += `
           <tr>
-            <td>${item.landlord}</td>
-            <td>${item.unit}</td>
-            <td>${item.units}</td>
-            <td>${item.price}</td>
+            <td>${l.landlordName}</td>
+            <td>${l.unitType}</td>
+            <td>${l.units}</td>
+            <td>${l.price}</td>
           </tr>
         `;
       });
 
-      tableHTML += `</tbody></table>`;
-      contentArea.innerHTML = tableHTML;
-    } catch (err) {
-      contentArea.innerHTML = `<p>Error loading listings: ${err.message}</p>`;
+      html += `
+          </tbody>
+        </table>
+      `;
+
+      contentArea.innerHTML = html;
+
+    } catch (error) {
+      console.error(error);
+      contentArea.innerHTML = "<p>Failed to load listings.</p>";
     }
-  });
+  }
 });

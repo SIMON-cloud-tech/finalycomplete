@@ -15,7 +15,7 @@ async function loadHousePreview() {
   }
 
   try {
-    const res = await fetch("/api/listings");
+    const res = await fetch("/api/shop/listings");
     const listings = await res.json();
     const house = listings.find(l => l.id == selectedHouseId);
 
@@ -49,6 +49,7 @@ bookForm.addEventListener("submit", async e => {
     name: document.getElementById("clientName").value,
     email: document.getElementById("clientEmail").value,
     password: document.getElementById("clientPassword").value,
+    tenantPhone: document.getElementById("tenantPhone").value,
     price: priceInput.value
   };
 

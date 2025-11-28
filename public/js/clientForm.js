@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         localStorage.setItem("clientToken", data.token);
 
         // Redirect to client dashboard
-        window.location.href = "client-dashboard.html";
+        window.location.href = "client.html";
       } else {
         showToast(data.error || "Login failed.");
       }

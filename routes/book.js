@@ -1,6 +1,7 @@
 const express = require("express");
 const fs = require("fs");
 const path = require("path");
+const bcrypt = require("bcryptjs");
 
 const router = express.Router();
 
@@ -22,37 +23,42 @@ function writeJSON(filePath, data) {
 
 // POST /api/book → create booking
 router.post("/book", (req, res) => {
-  const { houseId, name, email, password, price } = req.body;
+  const { houseId, name, email, password, price, tenantPhone } = req.body;
 
-  if (!houseId || !name || !email || !password) {
+  if (!houseId || !name || !email || !password || !tenantPhone) {
     return res.status(400).json({ error: "Missing required fields" });
   }
 
   const clientsPath = path.join(__dirname, "../data/clients.json");
   const bookingsPath = path.join(__dirname, "../data/bookings.json");
   const listingsPath = path.join(__dirname, "../data/listings.json");
+  const landlordsPath = path.join(__dirname, "../data/landlords.json");
 
   // Load clients, bookings, and listings
   let clients = readJSON(clientsPath);
   let bookings = readJSON(bookingsPath);
   let listings = readJSON(listingsPath);
+  const landlords = readJSON(landlordsPath);
 
   // Check if client exists
   let client = clients.find(c => c.email === email);
   if (!client) {
+    const hashedPassword = bcrypt.hashSync(password, 10); // 10 = salt rounds
     client = {
       id: clients.length + 1,
       name,
       email,
-      password
+      password: hashedPassword   //store hashed passwird
     };
     clients.push(client);
     writeJSON(clientsPath, clients);
   }
 
   // Find landlord info and deposit info from listings
-  const house = listings.find(l => String(l.id) === String(houseId));
-  const landlordName = house ? house.landlord : null;
+    const house = listings.find(l => String(l.id) === String(houseId));
+    const landlordId = house ? house.landlordId : null;
+    const landlordName = landlordId ? (landlords.find(ld => String(ld.id) === String(landlordId))?.name || "Unknown") : "Unknown";
+
 
   // Create booking (enriched with deposit fields)
   const bookingId = bookings.length + 1;
@@ -60,11 +66,13 @@ router.post("/book", (req, res) => {
   const booking = {
     id: bookingId,
     houseId,
+    tenantPhone,   // ✅ store tenant phone number
     clientId: client.id,
     price,
     status: "pending",
     createdAt: now,
-    landlord: landlordName,   // ✅ for dashboards
+    landlordId,   //Link to landlord
+    landlord: landlordName, // ✅ add name
     time: now,                // ✅ normalized time field
 
     // 🔽 New deposit-related fields

@@ -56,11 +56,9 @@ function writeJSON(filePath, data) {
 router.get("/listings", authenticateToken, (req, res) => {
   const all = readJSON(listingsPath);
   const landlordId = req.landlord.id;
-  const landlordName = req.landlord.name;
 
-  let listings = all.filter(
-    l => l.landlordId === landlordId || l.landlord === landlordName
-  );
+  let listings = all.filter(l => l.landlordId === landlordId);
+
 
   // Optional server-side filtering
   const { q, unit, location, price } = req.query;
@@ -88,7 +86,6 @@ router.post(
     try {
       const all = readJSON(listingsPath);
       const landlordId = req.landlord.id;
-      const landlordName = req.landlord.name;
 
       // Validate required fields
       const { unit, units, location, price, description, paymentType, depositAmount } = req.body;
@@ -118,7 +115,6 @@ router.post(
       const newListing = {
         id: Date.now(),
         landlordId,
-        landlord: landlordName,
         unit,
         units: unitsInt,
         location,

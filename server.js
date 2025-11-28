@@ -8,10 +8,11 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
+app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
+
 
 /* ---------------- Core Routes ---------------- */
 const paymentRoutes = require("./routes/payment");
-const shopRoute = require("./routes/shop");
 const contactRoutes = require("./routes/contact");
 const bookRoutes = require("./routes/book");
 const testimonialRoutes = require("./routes/testimonials");
@@ -25,13 +26,27 @@ const authRoutes = require('./routes/authRoutes');
 
 
 /* ---------------- Business Dashboard Routes ---------------- */
+
+const businessBookingsRoute = require("./routes/business-bookings");
+app.use("/api/bookings", businessBookingsRoute);
+
+
 const businessListingsRoute = require("./routes/business-listings");
+app.use("/api/listings", businessListingsRoute);
+
+// server.js
+const shopRoute = require("./routes/shop");
+// Mount shop.js explicitly under a unique path
+app.use("/api/shop/listings", shopRoute);
+
+const callbackRoutes = require("./routes/callbacks");
+app.use(callbackRoutes);
+
 const businessLandlordsRoute = require("./routes/business-landlords");
 const businessPaymentsRoute = require("./routes/business-payments");
-const businessBookingsRoute = require("./routes/business-bookings");
 const businessValuationRoutes = require("./routes/business-valuation");
 const businessRevenueRoute = require("./routes/business-revenue");
-const businessAnalyticsRoute = require("./routes/business-analytics");
+const businessAnalyticsRoute = require('./routes/business-analytics');
 const businessSettingsRoute = require("./routes/business-settings");
 const businessDashboardFeedRoute = require("./routes/business-dashboard-feed");
 const manageLandlordsRoute = require("./routes/business-manage-landlords");
@@ -52,7 +67,6 @@ const signoutRoutes = require("./routes/signout");
 // Core
 app.use("/api", paymentRoutes);
 app.use("/api", contactRoutes);
-app.use("/api", shopRoute);
 app.use("/api", bookRoutes);
 app.use("/", testimonialRoutes);
 app.use("/api", setupRoute);
@@ -65,15 +79,13 @@ app.use('/api/auth', authRoutes);
 
 // Business Dashboard
 app.use("/api", businessLandlordsRoute);
-app.use("/api/listings", businessListingsRoute);
 app.use("/api", businessPaymentsRoute);
-app.use("/api", businessBookingsRoute);
 app.use("/api/valuation", businessValuationRoutes);
 app.use("/api", businessRevenueRoute);
-app.use("/api", businessAnalyticsRoute);
+app.use('/api', businessAnalyticsRoute);
 app.use("/api", businessDashboardFeedRoute);
-app.use("/", businessSettingsRoute);
 app.use("/api/manage-landlords", manageLandlordsRoute);
+app.use("/api/settings", businessSettingsRoute);
 
 // Landlord Dashboard
 app.use("/api/landlord", landlordPaymentsRoutes);
@@ -87,6 +99,13 @@ app.use("/api/landlords", landlordLoginRoutes.router);
 app.use("/api/signout", signoutRoutes);
 
 /* ---------------- Root Route ---------------- */
+
+app.use((req, res, next) => {
+  console.log("Incoming request:", req.method, req.url);
+  next();
+});
+
+
 app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "index.html"));
 });

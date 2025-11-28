@@ -1,50 +1,36 @@
+// routes/business-listings.js
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
-
 const router = express.Router();
+const path = require("path");
+const fs = require("fs");
 
-const listingsPath = path.join(__dirname, "../data/listings.json");
+// Paths to JSON files
+const listingsPath = path.join(__dirname, "../data/listings.json"); 
 const landlordsPath = path.join(__dirname, "../data/landlords.json");
 
-// Utility to safely read JSON
-function readJSON(filePath) {
-  try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
-  } catch {
-    return [];
-  }
-}
-
-// Normalize ID
-function normId(val) {
-  return String(val || "").trim();
-}
-
-// GET /api/listings → landlord, unit type, units, price
-// 🔧 Use "/" here because server mounts at "/api/listings"
+// GET /api/listings
 router.get("/", (req, res) => {
   try {
-    const listings = readJSON(listingsPath);
-    const landlords = readJSON(landlordsPath);
+    const listings = JSON.parse(fs.readFileSync(listingsPath, "utf8"));
+    const landlords = JSON.parse(fs.readFileSync(landlordsPath, "utf8"));
 
-    // Build lookup map
-    const landlordMap = {};
-    landlords.forEach(ld => {
-      landlordMap[normId(ld.id)] = ld.name;
+    const output = listings.map((item) => {
+      const landlord = landlords.find((l) => l.id === item.landlordId);
+
+      return {
+        id: item.id,
+        landlordName: landlord ? landlord.name : "Unknown",
+        unitType: item.unit,
+        units: item.units,
+        price: item.price
+      };
     });
 
-    const simplified = listings.map(l => ({
-      landlord: landlordMap[normId(l.landlordId)] || "Unknown",
-      unit: l.unit || "",
-      units: l.units || 0,
-      price: l.price || 0
-    }));
+    res.json(output);
 
-    res.json(simplified);
   } catch (err) {
-    console.error("🚨 Error reading listings:", err);
-    res.status(500).json({ message: "Server error fetching listings." });
+    console.error("Error loading listings:", err);
+    res.status(500).json({ error: "Server error loading listings" });
   }
 });
 

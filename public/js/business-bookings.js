@@ -1,17 +1,29 @@
 // public/js/business-bookings.js
-document.addEventListener("DOMContentLoaded", () => {
-  const contentArea = document.getElementById("content-area");
-  const bookingsItem = document.querySelector('li[data-content="Bookings"]');
 
-  bookingsItem.addEventListener("click", async () => {
+document.addEventListener("DOMContentLoaded", () => {
+  const bookingsBtn = document.querySelector('li[data-content="Bookings"]');
+  const contentArea = document.getElementById("content-area");
+
+  if (bookingsBtn) {
+    bookingsBtn.addEventListener("click", loadBookings);
+  }
+
+  async function loadBookings() {
+    contentArea.innerHTML = "<p>Loading bookings...</p>";
+
     try {
       const res = await fetch("/api/bookings");
       const data = await res.json();
 
-      // Build table dynamically
-      let tableHTML = `
+      if (!Array.isArray(data)) {
+        contentArea.innerHTML = "<p>Error loading bookings.</p>";
+        return;
+      }
+
+      // Build table HTML
+      let table = `
         <h2>Bookings</h2>
-        <table>
+        <table class="data-table">
           <thead>
             <tr>
               <th>Landlord</th>
@@ -23,21 +35,26 @@ document.addEventListener("DOMContentLoaded", () => {
           <tbody>
       `;
 
-      data.forEach(item => {
-        tableHTML += `
+      data.forEach((b) => {
+        table += `
           <tr>
-            <td>${item.landlord}</td>
-            <td>${item.price}</td>
-            <td>${new Date(item.time).toLocaleString()}</td>
-            <td>${item.status}</td>
+            <td>${b.landlordName}</td>
+            <td>${b.price}</td>
+            <td>${new Date(b.time).toLocaleString()}</td>
+            <td>${b.status}</td>
           </tr>
         `;
       });
 
-      tableHTML += `</tbody></table>`;
-      contentArea.innerHTML = tableHTML;
-    } catch (err) {
-      contentArea.innerHTML = `<p>Error loading bookings: ${err.message}</p>`;
+      table += `
+          </tbody>
+        </table>
+      `;
+
+      contentArea.innerHTML = table;
+    } catch (error) {
+      console.error(error);
+      contentArea.innerHTML = "<p>Failed to load bookings.</p>";
     }
-  });
+  }
 });

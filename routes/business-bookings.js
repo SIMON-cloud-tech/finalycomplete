@@ -1,29 +1,36 @@
 // routes/business-bookings.js
 const express = require("express");
-const fs = require("fs");
-const path = require("path");
-
 const router = express.Router();
+const path = require("path");
+const fs = require("fs");
 
-// Utility to safely read JSON
-function readJSON(filePath) {
-  if (!fs.existsSync(filePath)) return [];
-  return JSON.parse(fs.readFileSync(filePath, "utf8"));
-}
+// Paths to JSON files
+const bookingsPath = path.join(__dirname, "../data/bookings.json");
+const landlordsPath = path.join(__dirname, "../data/landlords.json");
 
-// GET /api/bookings → landlord, price, time, status
-router.get("/bookings", (req, res) => {
-  const bookingsPath = path.join(__dirname, "../data/bookings.json");
-  const bookings = readJSON(bookingsPath);
+// GET /api/bookings
+router.get("/", (req, res) => {
+  try {
+    const bookings = JSON.parse(fs.readFileSync(bookingsPath, "utf8"));
+    const landlords = JSON.parse(fs.readFileSync(landlordsPath, "utf8"));
 
-  const simplified = bookings.map(b => ({
-    landlord: b.landlord,
-    price: b.price,
-    time: b.time,
-    status: b.status
-  }));
+    const result = bookings.map((b) => {
+      const landlord = landlords.find((l) => l.id === b.landlordId);
 
-  res.json(simplified);
+      return {
+        id: b.id,
+        landlordName: landlord ? landlord.name : "Unknown",
+        price: b.price,
+        time: b.time,
+        status: b.status,
+      };
+    });
+
+    res.json(result);
+  } catch (err) {
+    console.error("Error loading bookings:", err);
+    res.status(500).json({ error: "Server error loading bookings" });
+  }
 });
 
 module.exports = router;

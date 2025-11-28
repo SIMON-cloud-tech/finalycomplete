@@ -3,26 +3,28 @@
     "id": "L001",
     "name": "John Mwangi",
     "email": "john@gmail.com",
-    "phone": "254 711333444",
+    "phone": "254708374150",
     "role": "landlord",
     "passwordHash": "$2b$10$bAzWOPYik90IGmynib6gWu7xTbL6LEj.2GXOsmWPp8qD5L/2ADkFG",
     "emailSent": false,
-    "tillNumber": "866310"
+    "tillNumber": "866310",
+    "balance": 27000
   },
   {
     "id": "L002",
     "name": "Danson Malole",
     "email": "danson@gmail.com",
-    "phone": "254 711333444",
+    "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$SPSsjL6yBomD64ZpfgaWg.6sXUtxyDxzCraBCvobtCQd97JiYaVm.",
-    "emailSent": false
+    "emailSent": false,
+    "balance": 64800
   },
   {
     "id": "L003",
     "name": "Simon Mwangangi",
     "email": "simonmbithi143@gmail.com",
-    "phone": "+254  112585214",
+    "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$Q3RLKPMl9mqRZyKK8SMTkeoMGIpL0f9rHus4R8xq90PEf3GPY1yx2",
     "emailSent": false
@@ -31,17 +33,18 @@
     "id": "L004",
     "name": "Simon Mwaniki",
     "email": "mwaniki342@gmail.com",
-    "phone": "+254 711333444",
+    "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$QUrtiZjFb17PagaNWnIUQemiq7so6zSklQ3BoRGC2swMSPG0ZHY1m",
     "emailSent": true,
-    "status": "logged_in"
+    "status": "logged_in",
+    "balance": 16200
   },
   {
     "id": "L005",
     "name": "Duncan Mutua",
     "email": "simonmbithi876@gmail.com",
-    "phone": "+254 703433014",
+    "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$pQLCl5GAUBer/twysv9a3Op89HhNOIsuARApC45Gj2qNIIoPucSYS",
     "emailSent": true
@@ -50,7 +53,7 @@
     "id": "L006",
     "name": "Redemptah Mbula",
     "email": "redempta@gmail.com",
-    "phone": "+254 701404435",
+    "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$UPYAZti.CkSTfMsPCQHzlefWccMTQW7D2X4SF5t6t/fSmB/TSVSX2",
     "emailSent": false
@@ -59,7 +62,7 @@
     "id": "L007",
     "name": "Zedy123",
     "email": "mcheywamelchizedeck@gmail.com",
-    "phone": "254705410121",
+    "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$It0ktNmFLrrj5GNWf2SU9e1.la.WiNA0RthKZ4KHrgC.ZBypnNU.O",
     "emailSent": false
@@ -68,11 +71,12 @@
     "id": "L008",
     "name": "Fransiscar Mutua",
     "email": "fransiscar@gmail.com",
-    "phone": "254 790 1123 42",
+    "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$cE9E9l7tvWiA12ia3GYerOv0UXSWIBcZRa2nnuhtNPLvH0emV4fbS",
     "emailSent": false,
     "status": "signed_out",
-    "signedOutAt": "2025-11-26T14:47:14.969Z"
+    "signedOutAt": "2025-11-27T15:37:33.665Z",
+    "balance": 13500
   }
 ]

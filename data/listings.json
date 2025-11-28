@@ -7,7 +7,10 @@
     "price": 15000,
     "description": "A world class house with studio, well spaced, ideal for couples",
     "imagePath": "https://images.unsplash.com/photo-1560185127-6ed189bf02f4",
-    "location": "Kakamega"
+    "location": "Kakamega",
+    "paymentType": "deposit-first",
+    "requiresDeposit": true,
+    "depositAmount": 10000
   },
   {
     "id": 2,
@@ -17,7 +20,10 @@
     "price": 12000,
     "description": "Compact studio apartment ideal for students or single professionals",
     "imagePath": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c",
-    "location": "Mumias"
+    "location": "Mumias",
+    "paymentType": "deposit-first",
+    "requiresDeposit": true,
+    "depositAmount": 10000
   },
   {
     "id": 3,
@@ -27,7 +33,10 @@
     "price": 22000,
     "description": "Spacious apartment with balcony and modern kitchen, perfect for families",
     "imagePath": "https://images.unsplash.com/photo-1505691938895-1758d7feb511",
-    "location": "Nairobi"
+    "location": "Nairobi",
+    "paymentType": "deposit-first",
+    "requiresDeposit": true,
+    "depositAmount": 10000
   },
   {
     "id": 4,
@@ -37,7 +46,10 @@
     "price": 18000,
     "description": "Townhouse with private garden and parking space",
     "imagePath": "https://images.unsplash.com/photo-1572120360610-d971b9d7767c",
-    "location": "Kisumu"
+    "location": "Kisumu",    
+    "paymentType": "deposit-first",
+    "requiresDeposit": true,
+    "depositAmount": 10000
   },
   {
     "id": 1763791471698,
@@ -48,7 +60,10 @@
     "price": 8000,
     "description": "A luxurious world class 3 bedroom house with nearnesss to social amenities like hopsitals, water and electricity",
     "imagePath": "/assets/uploads/2_1763791471601.jpg",
-    "createdAt": "2025-11-22T06:04:31.698Z"
+    "createdAt": "2025-11-22T06:04:31.698Z",
+    "paymentType": "deposit-first",
+    "requiresDeposit": true,
+    "depositAmount": 10000
   },
   {
     "id": 1763824347790,
@@ -59,6 +74,24 @@
     "price": 6000,
     "description": "A luxurious hotel",
     "imagePath": "/assets/uploads/2_1763824347718.jpg",
-    "createdAt": "2025-11-22T15:12:27.790Z"
+    "createdAt": "2025-11-22T15:12:27.790Z",
+    "paymentType": "deposit-first",
+    "requiresDeposit": true,
+    "depositAmount": 10000
+  },
+  {
+    "id": 1764258006030,
+    "landlordId": "L008",
+    "unit": "3-Bedroom",
+    "units": 5,
+    "location": "Machakos",
+    "price": 15000,
+    "description": "A spacious living room with extensive decor and a playground",
+    "imagePath": "/assets/uploads/4_1764258005911.jpg",
+    "createdAt": "2025-11-27T15:40:06.031Z",
+    "paymentType": "deposit-first",
+    "requiresDeposit": true,
+    "depositAmount": 10000,
+    "status": "vacant"
   }
 ]

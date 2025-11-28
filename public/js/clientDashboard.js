@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", async () => {
   const token = localStorage.getItem("clientToken");
   const nameEl = document.getElementById("clientName");
+  const tbody = document.querySelector("tbody");
 
   if (!token) {
     alert("You must log in first.");
@@ -24,13 +25,30 @@ document.addEventListener("DOMContentLoaded", async () => {
     // ✅ Welcome message
     nameEl.innerText = data.client.name;
 
-    // ✅ Populate table
-    document.getElementById("house").innerText = data.client.house;
-    document.getElementById("landlord").innerText = data.client.landlord;
-    document.getElementById("startdate").innerText = data.client.startDate;
-    document.getElementById("status").innerText = data.client.status;
-    document.getElementById("location").innerText = data.client.location;
-    document.getElementById("staydays").innerText = data.client.stayDays;
+    // ✅ Populate table with booking history
+    tbody.innerHTML = "";
+    data.bookings.forEach(b => {
+      const tr = document.createElement("tr");
+
+      const houseTd = document.createElement("td");
+      houseTd.innerText = b.house || "Unknown";
+
+      const landlordTd = document.createElement("td");
+      landlordTd.innerText = b.landlord || "Unknown";
+
+      const statusTd = document.createElement("td");
+      statusTd.innerText = b.status;
+
+      const overdraftTd = document.createElement("td");
+      overdraftTd.innerText = b.overdraft;
+
+      tr.appendChild(houseTd);
+      tr.appendChild(landlordTd);
+      tr.appendChild(statusTd);
+      tr.appendChild(overdraftTd);
+
+      tbody.appendChild(tr);
+    });
   } catch (err) {
     console.error("Error loading dashboard:", err);
     showToast("Error loading dashboard.");
