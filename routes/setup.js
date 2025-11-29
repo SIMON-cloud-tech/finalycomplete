@@ -1,6 +1,7 @@
+// routes/admin-setup.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const rateLimit = require("express-rate-limit");
@@ -22,17 +23,18 @@ const limiter = rateLimit({
 });
 
 // Utility: read JSON safely
-function readJSON(filePath) {
+async function readJSON(filePath) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
   } catch {
     return [];
   }
 }
 
-// Utility: write JSON
-function writeJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
+// Utility: write JSON safely
+async function writeJSON(filePath, data) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
 // Generate 16-digit product key
@@ -64,11 +66,10 @@ router.post(
     const { companyName, location, email, password } = req.body;
 
     try {
-      const admins = readJSON(adminPath);
+      const admins = await readJSON(adminPath);
 
       // Generate product key
       const productKey = generateProductKey();
-      // ⚠️ For production: remove this console.log line
 
       // Hash password and product key
       const salt = await bcrypt.genSalt(10);
@@ -86,13 +87,13 @@ router.post(
       };
 
       admins.push(newAdmin);
-      writeJSON(adminPath, admins);
+      await writeJSON(adminPath, admins);
 
       // ✅ Send product key via SendGrid
       const msg = {
         to: email,
-        from: process.env.SENDGRID_FROM,          // sender from .env
-        replyTo: process.env.SENDGRID_REPLY_TO,   // optional reply-to
+        from: process.env.SENDGRID_FROM,
+        replyTo: process.env.SENDGRID_REPLY_TO,
         subject: "Your Product Key",
         text: `Hello ${companyName},\n\nYour product key is: ${productKey}\n\nUse this to activate your dashboard.\n`
       };

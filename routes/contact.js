@@ -1,5 +1,6 @@
+// routes/contact.js
 const express = require("express");
-const fs = require("fs");
+const fs = require("fs").promises; // use promises API
 const path = require("path");
 const router = express.Router();
 const sgMail = require("@sendgrid/mail");
@@ -12,6 +13,21 @@ const contactsFile = path.join(__dirname, "../data/contacts.json");
 // Helper: sanitize input server-side
 function sanitize(str) {
   return String(str).replace(/[<>]/g, "").trim();
+}
+
+// Utility: read JSON safely
+async function readJSON(filePath) {
+  try {
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
+  } catch {
+    return [];
+  }
+}
+
+// Utility: write JSON safely
+async function writeJSON(filePath, data) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
 router.post("/contact", async (req, res) => {
@@ -32,22 +48,18 @@ router.post("/contact", async (req, res) => {
     };
 
     // Save to contacts.json
-    let contacts = [];
-    if (fs.existsSync(contactsFile)) {
-      contacts = JSON.parse(fs.readFileSync(contactsFile, "utf8"));
-    }
+    const contacts = await readJSON(contactsFile);
     contacts.push(contactEntry);
-    fs.writeFileSync(contactsFile, JSON.stringify(contacts, null, 2));
+    await writeJSON(contactsFile, contacts);
 
     // Send dual emails (to business + client)
     const businessMsg = {
-      to:  process.env.SENDGRID_REPLY_TO,  
-      from:process.env.SENDGRID_FROM,
+      to: process.env.SENDGRID_REPLY_TO,
+      from: process.env.SENDGRID_FROM,
       subject: "New Contact Form Submission",
       text: `Name: ${contactEntry.name}\nEmail: ${contactEntry.email}\nComment: ${contactEntry.comment}\nEnquiry: ${contactEntry.enquiry}`,
     };
 
-    
     const clientMsg = {
       to: contactEntry.email,
       from: process.env.SENDGRID_FROM,

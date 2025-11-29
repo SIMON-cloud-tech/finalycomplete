@@ -2,15 +2,30 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 
 const listingsPath = path.join(__dirname, "../data/listings.json");
 const landlordsPath = path.join(__dirname, "../data/landlords.json");
 
-router.get("/", (req, res) => {
+// Utility: read JSON safely
+async function readJSON(filePath) {
   try {
-    const listingsData = JSON.parse(fs.readFileSync(listingsPath, "utf-8"));
-    const landlordsData = JSON.parse(fs.readFileSync(landlordsPath, "utf-8"));
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
+  } catch (err) {
+    console.error(`Error reading ${filePath}:`, err);
+    return [];
+  }
+}
+
+// GET /api/shop
+router.get("/", async (req, res) => {
+  try {
+    // Read both files concurrently
+    const [listingsData, landlordsData] = await Promise.all([
+      readJSON(listingsPath),
+      readJSON(landlordsPath)
+    ]);
 
     // Build landlordId → landlordName map
     const landlordsMap = {};
@@ -26,7 +41,7 @@ router.get("/", (req, res) => {
 
     res.json(processedListings);
   } catch (err) {
-    console.error("Error reading listings:", err);
+    console.error("Error loading shop listings:", err);
     res.status(500).json({ error: "Failed to load listings" });
   }
 });

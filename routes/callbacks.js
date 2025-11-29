@@ -88,6 +88,17 @@ router.post("/callback", async (req, res) => {
   booking.status = "paid";
   writeJSON(bookingsPath, bookings);
 
+  // 🔽 Reduce units count for the house once payment is confirmed
+    if (house.units && house.units > 0) {
+       house.units -= 1;
+       // Optionally mark as unavailable if units reach 0
+       if (house.units === 0) {
+        house.status = "unavailable";
+       }
+
+  writeJSON(listingsPath, listings);
+  }
+
   try {
     let darajaResponse;
     if (landlord.paybillNumber) {

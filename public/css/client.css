@@ -60,52 +60,93 @@ button{
 button:hover{
     background-color: rgb(2, 130, 250);
 }
-
-/*Client dashboard*/
-.client-dashboard h3{
-  font-style: italic;
-  font-weight: bold;
-  font-size: 30px;
-}
-.client-dashboard{
+/* Client dashboard */
+.client-dashboard {
   display: flex;
   flex-direction: column;
-  gap: 10px;
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.171);
-  width:max-content ;
-  align-items: center;
-  justify-content: center;
-  padding: 20px 30px;
+  gap: 20px;
+  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.15);
+  width: 90%;
+  max-width: 900px;
+  background: #fff;
+  align-items: stretch;
+  padding: 25px 35px;
   border-radius: 12px;
-  margin: 20px auto;
+  margin: 30px auto;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
-.table table{
+
+.client-dashboard h3 {
+  font-style: italic;
+  font-weight: bold;
+  font-size: 28px;
+  color: rgba(37, 102, 163, 0.9);
+  margin: 0;
+}
+
+/* Dashboard header with signout button */
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.signout-btn {
+  background-color: rgba(37, 102, 163, 0.9);
+  color: #fff;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.signout-btn:hover {
+  background-color: rgba(21, 159, 214, 0.9);
+}
+
+/* Table styling */
+.table table {
   border-collapse: collapse;
-}
-table thead tr{
-  background-color:rgba(37, 102, 163, 0.815);
   width: 100%;
 }
-table thead tr th{
-  padding: 10px 30px;
-  font-size: 20px;
-  color: white;
+
+.table h2 {
+  margin-bottom: 10px;
+  color: rgba(37, 102, 163, 0.9);
 }
-table tbody tr{
-  border-bottom: 1px solid rgba(128, 128, 128, 0.459);
+
+table thead tr {
+  background-color: rgba(37, 102, 163, 0.815);
 }
-table tbody  tr td{
-  padding: 10px 30px;
+
+table thead tr th {
+  padding: 12px 20px;
   font-size: 18px;
+  color: white;
+  text-align: left;
+}
+
+table tbody tr {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.3);
+}
+
+table tbody tr td {
+  padding: 10px 20px;
+  font-size: 16px;
   color: #333;
 }
-table tbody tr:nth-of-type(odd){
+
+table tbody tr:nth-of-type(odd) {
   background-color: antiquewhite;
 }
-table tbody tr:nth-of-type(even){
-  background-color: rgba(255,255,255,0.2);
+
+table tbody tr:nth-of-type(even) {
+  background-color: rgba(255, 255, 255, 0.6);
 }
-table tbody tr:hover{
-  background-color: rgba(21, 159, 214, 0.527);
-  transition: 0.6s;
+
+table tbody tr:hover {
+  background-color: rgba(21, 159, 214, 0.15);
+  transition: 0.3s;
 }

@@ -15,7 +15,6 @@ app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 const paymentRoutes = require("./routes/payment");
 const contactRoutes = require("./routes/contact");
 const bookRoutes = require("./routes/book");
-const testimonialRoutes = require("./routes/testimonials");
 const setupRoute = require("./routes/setup");
 const activationRoutes = require("./routes/activation");
 const businessActivationLoginRoutes = require("./routes/business-activation-login");
@@ -34,13 +33,24 @@ app.use("/api/bookings", businessBookingsRoute);
 const businessListingsRoute = require("./routes/business-listings");
 app.use("/api/listings", businessListingsRoute);
 
-// server.js
 const shopRoute = require("./routes/shop");
-// Mount shop.js explicitly under a unique path
 app.use("/api/shop/listings", shopRoute);
+
+// ---------------- Bookings Route ----------------
+const landlordBookingsRoute = require("./routes/landlord-bookings");
+app.use("/api", landlordBookingsRoute);
+
+const clientSignoutRoute = require("./routes/clients-signout");
+app.use("/api", clientSignoutRoute);
+
+const contactFormRoutes = require("./routes/contactForm");
+app.use("/api", contactFormRoutes);
 
 const callbackRoutes = require("./routes/callbacks");
 app.use(callbackRoutes);
+
+const testimonialsRoutes = require("./routes/testimonials");
+app.use("/", testimonialsRoutes);
 
 const businessLandlordsRoute = require("./routes/business-landlords");
 const businessPaymentsRoute = require("./routes/business-payments");
@@ -68,7 +78,6 @@ const signoutRoutes = require("./routes/signout");
 app.use("/api", paymentRoutes);
 app.use("/api", contactRoutes);
 app.use("/api", bookRoutes);
-app.use("/", testimonialRoutes);
 app.use("/api", setupRoute);
 app.use("/api", activationRoutes);
 app.use("/api", businessActivationLoginRoutes);

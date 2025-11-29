@@ -1,7 +1,7 @@
-
+// routes/client-login.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // use promises API
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -11,10 +11,11 @@ require("dotenv").config();
 const clientsPath = path.join(__dirname, "../data/clients.json");
 const JWT_SECRET = process.env.JWT_SECRET || "supersecretkey";
 
-// Utility: read JSON safely
-function readJSON(filePath) {
+// Utility: read JSON safely (async)
+async function readJSON(filePath) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
   } catch {
     return [];
   }
@@ -28,7 +29,7 @@ router.post("/client/login", async (req, res) => {
   }
 
   try {
-    const clients = readJSON(clientsPath);
+    const clients = await readJSON(clientsPath);
     const client = clients.find(c => c.email === email);
 
     if (!client) {

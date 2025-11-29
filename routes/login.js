@@ -1,6 +1,7 @@
+// routes/landlord-login.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
@@ -10,10 +11,11 @@ const validator = require("validator");
 const landlordsPath = path.join(__dirname, "../data/landlords.json");
 const SECRET_KEY = process.env.JWT_SECRET || "supersecretkey";
 
-// Utility: read landlords.json
-function readJSON(filePath) {
+// Utility: read landlords.json safely
+async function readJSON(filePath) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
   } catch {
     return [];
   }
@@ -39,10 +41,8 @@ router.post("/login", loginLimiter, async (req, res) => {
       return res.status(400).json({ message: "Missing email or password." });
     }
 
-    const landlords = readJSON(landlordsPath);
-    const landlord =
-    
-     landlords.find(l => l.email === email);
+    const landlords = await readJSON(landlordsPath);
+    const landlord = landlords.find(l => l.email === email);
 
     if (!landlord) {
       return res.status(401).json({ message: "Invalid credentials." });
@@ -53,11 +53,11 @@ router.post("/login", loginLimiter, async (req, res) => {
       return res.status(401).json({ message: "Invalid credentials." });
     }
 
-const token = jwt.sign(
-  { id: landlord.id, email: landlord.email, role: landlord.role, name: landlord.name },
-  SECRET_KEY,
-  { expiresIn: "1h" }
-);
+    const token = jwt.sign(
+      { id: landlord.id, email: landlord.email, role: landlord.role, name: landlord.name },
+      SECRET_KEY,
+      { expiresIn: "1h" }
+    );
 
     res.json({ message: "Login successful", token });
   } catch (err) {

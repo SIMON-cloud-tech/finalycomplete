@@ -1,21 +1,25 @@
+// routes/admin-activate.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 const path = require("path");
 const bcrypt = require("bcryptjs");
 
 const adminPath = path.join(__dirname, "../data/admin.json");
 
-function readJSON(filePath) {
+// Utility: read JSON safely
+async function readJSON(filePath) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
   } catch {
     return [];
   }
 }
 
-function writeJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
+// Utility: write JSON safely
+async function writeJSON(filePath, data) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
 // POST /api/activate
@@ -26,10 +30,10 @@ router.post("/activate", async (req, res) => {
   }
 
   try {
-    const admins = readJSON(adminPath);
+    const admins = await readJSON(adminPath);
 
-    // Find the first admin (or match by email if needed)
-    const admin = admins[admins.length - 1]; // last created admin
+    // Find the last created admin (or match by email if needed)
+    const admin = admins[admins.length - 1];
     if (!admin) {
       return res.status(404).json({ error: "No admin setup found." });
     }
@@ -42,7 +46,7 @@ router.post("/activate", async (req, res) => {
 
     // Mark activated forever
     admin.activated = true;
-    writeJSON(adminPath, admins);
+    await writeJSON(adminPath, admins);
 
     res.json({ success: true, message: "Product key activated successfully." });
   } catch (err) {

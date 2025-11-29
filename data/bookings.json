@@ -14,5 +14,21 @@
     "depositPaid": true,
     "depositRefunded": false,
     "refundDate": null
+  },
+  {
+    "id": 2,
+    "houseId": "1",
+    "tenantPhone": "254703433014",
+    "clientId": 1,
+    "price": "15000",
+    "status": "pending",
+    "createdAt": "2025-11-29T10:40:30.214Z",
+    "landlordId": "L001",
+    "landlord": "John Mwangi",
+    "time": "2025-11-29T10:40:30.214Z",
+    "depositAmount": 10000,
+    "depositPaid": true,
+    "depositRefunded": false,
+    "refundDate": null
   }
 ]

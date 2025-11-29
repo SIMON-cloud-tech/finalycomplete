@@ -1,15 +1,16 @@
+// routes/landlord-payments.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 const path = require("path");
 const { authenticateToken } = require("./login"); // JWT middleware
 
 const salesPath = path.join(__dirname, "../data/sales.json");
 
 // Utility: read JSON safely
-function readJSON(filePath) {
+async function readJSON(filePath) {
   try {
-    const raw = fs.readFileSync(filePath, "utf8");
+    const raw = await fs.readFile(filePath, "utf8");
     return JSON.parse(raw);
   } catch (err) {
     console.error("🚨 Error parsing sales.json:", err);
@@ -29,9 +30,9 @@ function formatTimestamp(isoString) {
 }
 
 // GET /api/landlord/payments
-router.get("/payments", authenticateToken, (req, res) => {
+router.get("/payments", authenticateToken, async (req, res) => {
   try {
-    const sales = readJSON(salesPath);
+    const sales = await readJSON(salesPath);
 
     const landlordId = req.landlord.id;
     const landlordName = req.landlord.name;

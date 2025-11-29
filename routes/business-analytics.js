@@ -1,15 +1,19 @@
 const express = require('express');
-const fs = require('fs');
+const fs = require('fs').promises; // use promises API
 const path = require('path');
 const router = express.Router();
 
 const landlordsPath = path.join(__dirname, '../data/landlords.json');
 const salesPath = path.join(__dirname, '../data/sales.json');
 
-router.get('/analytics-summary', (req, res) => {
+router.get('/analytics-summary', async (req, res) => {
   try {
-    const landlords = JSON.parse(fs.readFileSync(landlordsPath, 'utf8'));
-    const sales = JSON.parse(fs.readFileSync(salesPath, 'utf8'));
+    // Read files asynchronously
+    const landlordsData = await fs.readFile(landlordsPath, 'utf8');
+    const salesData = await fs.readFile(salesPath, 'utf8');
+
+    const landlords = JSON.parse(landlordsData);
+    const sales = JSON.parse(salesData);
 
     // landlordId -> landlordName map
     const landlordMap = {};

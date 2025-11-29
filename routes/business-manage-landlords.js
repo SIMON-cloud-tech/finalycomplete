@@ -1,5 +1,6 @@
+// routes/business-manage-landlords.js
 const express = require("express");
-const fs = require("fs");
+const fs = require("fs").promises; // use promises API
 const path = require("path");
 const sgMail = require("@sendgrid/mail");   // ✅ SendGrid SDK
 
@@ -10,55 +11,67 @@ const landlordsPath = path.join(__dirname, "../data/landlords.json");
 // Load SendGrid API key from environment variable
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-function readJSON(filePath) {
+// Utility: read JSON file safely
+async function readJSON(filePath) {
   try {
-    const raw = fs.readFileSync(filePath, "utf8").trim();
-    if (!raw) return []; // empty file → return empty array
-    return JSON.parse(raw);
+    const raw = await fs.readFile(filePath, "utf8");
+    const trimmed = raw.trim();
+    if (!trimmed) return []; // empty file → return empty array
+    return JSON.parse(trimmed);
   } catch (err) {
     console.error("🚨 Error parsing JSON file:", filePath, err.message);
     return [];
   }
 }
 
-
-function writeJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
+// Utility: write JSON file safely
+async function writeJSON(filePath, data) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
 // GET /api/manage-landlords → all landlords
-router.get("/", (req, res) => {
-  const landlords = readJSON(landlordsPath);
-  res.json(landlords);
+router.get("/", async (req, res) => {
+  try {
+    const landlords = await readJSON(landlordsPath);
+    res.json(landlords);
+  } catch (err) {
+    console.error("🚨 Error loading landlords:", err);
+    res.status(500).json({ message: "Failed to load landlords" });
+  }
 });
 
 // SOFT DELETE /api/manage-landlords/:id → mark landlord as blocked
-router.delete("/:id", (req, res) => {
-  const landlords = readJSON(landlordsPath);
-  const id = req.params.id;
+router.delete("/:id", async (req, res) => {
+  try {
+    const landlords = await readJSON(landlordsPath);
+    const id = req.params.id;
 
-  const landlord = landlords.find(ld => ld.id === id);
-  if (!landlord) {
-    return res.status(404).json({ message: "Landlord not found" });
+    const landlord = landlords.find(ld => ld.id === id);
+    if (!landlord) {
+      return res.status(404).json({ message: "Landlord not found" });
+    }
+
+    landlord.blocked = true; // 🔧 soft delete
+    await writeJSON(landlordsPath, landlords);
+
+    res.json({ message: `Landlord ${id} marked as blocked` });
+  } catch (err) {
+    console.error("🚨 Error blocking landlord:", err);
+    res.status(500).json({ message: "Failed to block landlord" });
   }
-
-  landlord.blocked = true; // 🔧 soft delete
-  writeJSON(landlordsPath, landlords);
-
-  res.json({ message: `Landlord ${id} marked as blocked` });
 });
 
 // POST /api/manage-landlords/:id/warning → send warning email
 router.post("/:id/warning", async (req, res) => {
-  const landlords = readJSON(landlordsPath);
-  const id = req.params.id;
-  const landlord = landlords.find(ld => ld.id === id);
-
-  if (!landlord) {
-    return res.status(404).json({ message: "Landlord not found" });
-  }
-
   try {
+    const landlords = await readJSON(landlordsPath);
+    const id = req.params.id;
+    const landlord = landlords.find(ld => ld.id === id);
+
+    if (!landlord) {
+      return res.status(404).json({ message: "Landlord not found" });
+    }
+
     const msg = {
       to: landlord.email,
       from: process.env.SENDGRID_FROM, // your verified sender

@@ -1,18 +1,24 @@
+// routes/landlord-listings.js
 const express = require("express");
-const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 const path = require("path");
 const multer = require("multer");
 const { authenticateToken } = require("./login"); // JWT middleware
+
+const router = express.Router();
 
 // Paths
 const listingsPath = path.join(__dirname, "../data/listings.json");
 const uploadsDir = path.join(__dirname, "../public/assets/uploads");
 
 // Ensure uploads directory exists
-if (!fs.existsSync(uploadsDir)) {
-  fs.mkdirSync(uploadsDir, { recursive: true });
-}
+(async () => {
+  try {
+    await fs.mkdir(uploadsDir, { recursive: true });
+  } catch (err) {
+    console.error("Error ensuring uploads directory:", err);
+  }
+})();
 
 // Multer storage config
 const storage = multer.diskStorage({
@@ -37,44 +43,48 @@ const upload = multer({
 });
 
 // Utility: read JSON safely
-function readJSON(filePath) {
+async function readJSON(filePath) {
   try {
-    const raw = fs.readFileSync(filePath, "utf8");
+    const raw = await fs.readFile(filePath, "utf8");
     return JSON.parse(raw);
   } catch (err) {
-    console.error("Error parsing listings.json:", err);
+    console.error("Error parsing JSON:", err);
     return [];
   }
 }
 
 // Utility: write JSON
-function writeJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
+async function writeJSON(filePath, data) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
 // GET /api/landlord/listings
-router.get("/listings", authenticateToken, (req, res) => {
-  const all = readJSON(listingsPath);
-  const landlordId = req.landlord.id;
+router.get("/listings", authenticateToken, async (req, res) => {
+  try {
+    const all = await readJSON(listingsPath);
+    const landlordId = req.landlord.id;
 
-  let listings = all.filter(l => l.landlordId === landlordId);
+    let listings = all.filter(l => l.landlordId === landlordId);
 
+    // Optional server-side filtering
+    const { q, unit, location, price } = req.query;
+    if (q) {
+      const ql = q.toLowerCase();
+      listings = listings.filter(l =>
+        String(l.unit || "").toLowerCase().includes(ql) ||
+        String(l.location || "").toLowerCase().includes(ql) ||
+        String(l.price || "").includes(q)
+      );
+    }
+    if (unit) listings = listings.filter(l => String(l.unit || "").toLowerCase() === unit.toLowerCase());
+    if (location) listings = listings.filter(l => String(l.location || "").toLowerCase() === location.toLowerCase());
+    if (price) listings = listings.filter(l => String(l.price || "") === String(price));
 
-  // Optional server-side filtering
-  const { q, unit, location, price } = req.query;
-  if (q) {
-    const ql = q.toLowerCase();
-    listings = listings.filter(l =>
-      String(l.unit || "").toLowerCase().includes(ql) ||
-      String(l.location || "").toLowerCase().includes(ql) ||
-      String(l.price || "").includes(q)
-    );
+    res.json({ listings });
+  } catch (err) {
+    console.error("Error fetching listings:", err);
+    res.status(500).json({ message: "Server error fetching listings." });
   }
-  if (unit) listings = listings.filter(l => String(l.unit || "").toLowerCase() === unit.toLowerCase());
-  if (location) listings = listings.filter(l => String(l.location || "").toLowerCase() === location.toLowerCase());
-  if (price) listings = listings.filter(l => String(l.price || "") === String(price));
-
-  res.json({ listings });
 });
 
 // POST /api/landlord/listings
@@ -82,9 +92,9 @@ router.post(
   "/listings",
   authenticateToken,
   upload.single("image"),
-  (req, res) => {
+  async (req, res) => {
     try {
-      const all = readJSON(listingsPath);
+      const all = await readJSON(listingsPath);
       const landlordId = req.landlord.id;
 
       // Validate required fields
@@ -130,7 +140,7 @@ router.post(
       };
 
       all.push(newListing);
-      writeJSON(listingsPath, all);
+      await writeJSON(listingsPath, all);
 
       res.json({ message: "Listing created successfully.", listing: newListing });
     } catch (err) {

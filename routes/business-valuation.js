@@ -1,16 +1,16 @@
 // routes/business-valuation.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // use promises API
 const path = require("path");
 
 const listingsPath = path.join(__dirname, "../data/listings.json");
 const landlordsPath = path.join(__dirname, "../data/landlords.json");
 
-// Utility: read JSON safely
-function readJSON(filePath) {
+// Utility: read JSON safely (async)
+async function readJSON(filePath) {
   try {
-    const raw = fs.readFileSync(filePath, "utf8");
+    const raw = await fs.readFile(filePath, "utf8");
     return JSON.parse(raw);
   } catch (err) {
     console.error("🚨 Error parsing JSON file:", err);
@@ -20,10 +20,13 @@ function readJSON(filePath) {
 
 // GET /api/valuation – business view (all landlords)
 // 🔧 FIX: use "/" here because server mounts at "/api/valuation"
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const listings = readJSON(listingsPath);
-    const landlords = readJSON(landlordsPath);
+    // Read both files concurrently
+    const [listings, landlords] = await Promise.all([
+      readJSON(listingsPath),
+      readJSON(landlordsPath)
+    ]);
 
     const valuationData = listings.map(l => {
       const units = parseInt(l.units || "0");

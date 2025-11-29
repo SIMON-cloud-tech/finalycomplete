@@ -1,14 +1,17 @@
+// routes/landlord-analytics.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 const path = require("path");
 const { authenticateToken } = require("./login");
 
 const salesPath = path.join(__dirname, "../data/sales.json");
 
-function readJSON(filePath) {
+// Utility: read JSON safely
+async function readJSON(filePath) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
   } catch (err) {
     console.error("🚨 Error parsing sales.json:", err);
     return [];
@@ -16,9 +19,9 @@ function readJSON(filePath) {
 }
 
 // GET /api/landlord/analytics
-router.get("/analytics", authenticateToken, (req, res) => {
+router.get("/analytics", authenticateToken, async (req, res) => {
   try {
-    const sales = readJSON(salesPath);
+    const sales = await readJSON(salesPath);
     const landlordId = req.landlord.id;
     const landlordName = req.landlord.name;
 
@@ -28,8 +31,8 @@ router.get("/analytics", authenticateToken, (req, res) => {
 
     const formatted = landlordSales.map(s => ({
       client: s.client,
-      commission: parseInt(s.commission.replace(/\D/g, "")), // strip KES
-      revenue: parseInt(s.landlordShare.replace(/\D/g, "")),
+      commission: parseInt(String(s.commission || "0").replace(/\D/g, "")), // strip KES
+      revenue: parseInt(String(s.landlordShare || "0").replace(/\D/g, "")),
       timestamp: s.timestamp
     }));
 

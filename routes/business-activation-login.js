@@ -1,6 +1,7 @@
+// routes/admin-login.js
 const express = require("express");
 const router = express.Router();
-const fs = require("fs");
+const fs = require("fs").promises; // async file system API
 const path = require("path");
 const bcrypt = require("bcryptjs");
 const sgMail = require("@sendgrid/mail");
@@ -12,16 +13,19 @@ const adminPath = path.join(__dirname, "../data/admin.json");
 // Configure SendGrid
 sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
-function readJSON(filePath) {
+// Utility: read JSON safely
+async function readJSON(filePath) {
   try {
-    return JSON.parse(fs.readFileSync(filePath, "utf8"));
+    const data = await fs.readFile(filePath, "utf8");
+    return JSON.parse(data);
   } catch {
     return [];
   }
 }
 
-function writeJSON(filePath, data) {
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2), "utf8");
+// Utility: write JSON safely (if needed later)
+async function writeJSON(filePath, data) {
+  await fs.writeFile(filePath, JSON.stringify(data, null, 2), "utf8");
 }
 
 // POST /api/login
@@ -32,7 +36,7 @@ router.post("/login", async (req, res) => {
   }
 
   try {
-    const admins = readJSON(adminPath);
+    const admins = await readJSON(adminPath);
     const admin = admins.find(a => a.email === email);
 
     if (!admin) {
@@ -53,8 +57,8 @@ router.post("/login", async (req, res) => {
     // ✅ Send activation success email using .env values
     const msg = {
       to: email,
-      from: process.env.SENDGRID_FROM,          // matches your .env
-      replyTo: process.env.SENDGRID_REPLY_TO,   // optional reply-to
+      from: process.env.SENDGRID_FROM,
+      replyTo: process.env.SENDGRID_REPLY_TO,
       subject: "Product Activation Successful",
       text: `Hello ${admin.companyName},\n\nYour product has been successfully activated.\nFrom now on, simply log in with your credentials to access your dashboard.\n\nBest regards,\nBusiness Team`
     };

@@ -2,17 +2,21 @@
 const express = require("express");
 const router = express.Router();
 const path = require("path");
-const fs = require("fs");
+const fs = require("fs").promises; // use promises API
 
 // Paths to JSON files
 const bookingsPath = path.join(__dirname, "../data/bookings.json");
 const landlordsPath = path.join(__dirname, "../data/landlords.json");
 
 // GET /api/bookings
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   try {
-    const bookings = JSON.parse(fs.readFileSync(bookingsPath, "utf8"));
-    const landlords = JSON.parse(fs.readFileSync(landlordsPath, "utf8"));
+    // Read files asynchronously
+    const bookingsData = await fs.readFile(bookingsPath, "utf8");
+    const landlordsData = await fs.readFile(landlordsPath, "utf8");
+
+    const bookings = JSON.parse(bookingsData);
+    const landlords = JSON.parse(landlordsData);
 
     const result = bookings.map((b) => {
       const landlord = landlords.find((l) => l.id === b.landlordId);
