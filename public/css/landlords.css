@@ -1,0 +1,152 @@
+/* Base styles */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+/* Form container */
+.form {
+  display: flex;
+  flex-direction: column;
+  margin: 40px auto;
+  width: 90%;
+  max-width: 600px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+
+/* Header */
+.form-header {
+  background: linear-gradient(135deg, rgb(21, 159, 214), #0077cc);
+  padding: 20px 30px;
+  text-align: center;
+}
+
+.form-header h4 {
+  margin: 0;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 600;
+  color: #fff;
+  letter-spacing: 0.5px;
+}
+
+/* Paragraph & links */
+.form p {
+  text-align: center;
+  padding: 15px 10px;
+  font-size: clamp(13px, 2vw, 15px);
+  color: #555;
+}
+
+.form p a {
+  color: rgb(21, 159, 214);
+  font-weight: 500;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.form p a:hover {
+  color: #005fa3;
+}
+
+/* Form body */
+#joinForm, #loginForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px 25px;
+  margin-bottom: 1.5rem;
+}
+
+#joinForm label, #loginForm label {
+  font-size: clamp(13px, 2vw, 15px);
+  font-weight: 500;
+  color: #333;
+}
+
+#joinForm input, #loginForm input {
+  padding: 12px 14px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  background-color: #fafafa;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  font-size: clamp(14px, 2vw, 16px);
+}
+
+#joinForm input:focus, #loginForm input:focus {
+  border-color: rgb(21, 159, 214);
+  box-shadow: 0 0 6px rgba(21, 159, 214, 0.3);
+  outline: none;
+}
+
+/* Password wrapper */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.password-wrapper .toggle-password {
+  position: absolute;
+  right: 0.75rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.password-wrapper .toggle-password:hover {
+  color: rgb(21, 159, 214);
+}
+
+/* Buttons */
+#joinForm button, #loginForm button {
+  align-self: flex-start;
+  padding: 12px 24px;
+  background-color: rgb(21, 159, 214);
+  color: #fff;
+  font-size: clamp(14px, 2vw, 16px);
+  font-weight: 600;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+}
+
+#joinForm button:hover, #loginForm button:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .form {
+    margin: 20px auto;
+    width: 95%;
+    border-radius: 8px;
+  }
+
+  .form-header {
+    padding: 15px;
+  }
+
+  #joinForm, #loginForm {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  #joinForm button, #loginForm button {
+    width: 100%;
+    text-align: center;
+    align-self: center;
+  }
+}

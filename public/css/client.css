@@ -3,62 +3,139 @@
     margin: 0;
     box-sizing: border-box;
 }
-body{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #fff;
-    font-family: 'Times New Roman', Times, serif;
+/* Base setup container */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f4f7f9;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
-.setup{
-    width: 600px;
-    margin-top: 5%;
-    padding: 10px 10px;
+
+.setup {
+  width: 90%;
+  max-width: 600px;
+  margin: 5% auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
 }
-.setup h2{
-    text-align: center;
+
+.setup h2 {
+  text-align: center;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 600;
+  color: rgb(21, 159, 214);
+  margin-bottom: 20px;
 }
-#setupMessage{
+
+/* Messages */
+#setupMessage, #loginMessage, #activationMessage {
   position: relative;
+  margin-top: 15px;
+  font-size: 14px;
+  text-align: center;
 }
-#clientForm h3{
+
+/* Form containers */
+#clientForm, #loginForm, #activationForm {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+  margin-top: 20px;
+  background-color: #fff;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border-radius: 10px;
+}
+
+#clientForm h3 {
+  text-align: center;
+  padding: 10px;
+  font-size: clamp(16px, 2vw, 20px);
+  font-weight: 600;
+  color: rgb(21, 159, 214);
+  margin-bottom: 10px;
+}
+
+/* Inputs */
+#clientForm input, #loginForm input, #activationForm input {
+  padding: 12px 14px;
+  border-radius: 6px;
+  background-color: #fafafa;
+  border: 1px solid #ccc;
+  font-size: clamp(14px, 2vw, 16px);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#clientForm input:focus, #loginForm input:focus, #activationForm input:focus {
+  border-color: rgb(21, 159, 214);
+  box-shadow: 0 0 6px rgba(21, 159, 214, 0.3);
+  outline: none;
+}
+
+/* Password wrapper */
+.password-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.password-wrapper input {
+  width: 100%;
+  padding-right: 2.5rem;
+}
+
+.password-wrapper .toggle-password {
+  position: absolute;
+  right: 0.75rem;
+  cursor: pointer;
+  color: #888;
+  transition: color 0.3s ease;
+}
+
+.password-wrapper .toggle-password:hover {
+  color: rgb(21, 159, 214);
+}
+
+/* Buttons */
+button {
+  padding: 12px 24px;
+  font-size: clamp(14px, 2vw, 16px);
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  outline: none;
+  border-radius: 6px;
+  background: linear-gradient(135deg, rgb(21, 159, 214), #0077cc);
+  font-weight: 600;
+  transition: background-color 0.4s ease, transform 0.2s ease;
+  align-self: flex-start;
+}
+
+button:hover {
+  background-color: #005fa3;
+  transform: translateY(-2px);
+}
+
+/* Responsive tweaks */
+@media (max-width: 480px) {
+  .setup {
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  #clientForm, #loginForm, #activationForm {
+    padding: 15px;
+    gap: 12px;
+  }
+
+  button {
+    width: 100%;
     text-align: center;
-    padding: 5px 8px;
-    color: black;
-    width: 100%;
-}
-#clientForm, #loginForm, #activationForm{
-    display: flex;
-    flex-direction: column;
-    margin-top: 5%;
-    color: #333;
-    box-shadow: 1px 2px 3px 5px rgba(0, 0, 0, 0.103);
-    padding: 20px 10px;
-    width: 100%;
-    gap: 5px;
-    max-width: 600px;
-    border-radius: 5px;
-}
-#clientForm input, #loginForm input, #activationForm input{
-    padding: 10px 20px;
-    border-radius: 2px;
-    background-color: transparent;
-    border: 1px solid rgba(128, 128, 128, 0.253);
-    line-height: 1rem;
-}
-button{
-    padding: 10px 20px;
-    font-size: 18px;
-    color: white;
-    width: max-content;
-    border: none;
-    cursor: pointer;
-    outline: none;
-    background-color: rgba(2, 130, 250, 0.705);
-    transition: 0.5s;
-}
-button:hover{
-    background-color: rgb(2, 130, 250);
+    align-self: center;
+  }
 }
 /* Client dashboard */
 .client-dashboard {
