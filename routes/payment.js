@@ -35,9 +35,16 @@ router.post("/payment", async (req, res) => {
     }
 
     // ✅ Initiate STK Push to collect payment from tenant
+    let amount;
+     if (Number(booking.depositAmount) > 0) {
+         amount = Number(booking.price) + Number(booking.depositAmount);
+      } else {
+           amount = Number(booking.price);
+        }
+
     const stkResponse = await sendSTKPush({
       phone: booking.tenantPhone,   // tenant phone must be stored in booking
-      amount: Number(booking.price),
+      amount: amount,
       bookingId: booking.id
     });
 
@@ -48,7 +55,9 @@ router.post("/payment", async (req, res) => {
       merchantRequestId: stkResponse.MerchantRequestID,
       checkoutRequestId: stkResponse.CheckoutRequestID,
       tenantPhone: booking.tenantPhone,
-      amount: Number(booking.price)
+      amount: amount,
+      requiresDeposit: booking.requiresDeposit || false,
+      depositAmount: booking.depositAmount || 0
     });
   } catch (err) {
     console.error("STK Push error:", err.message);

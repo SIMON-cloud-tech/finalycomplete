@@ -70,6 +70,7 @@ router.post(
 
       // Generate product key
       const productKey = generateProductKey();
+      console.log(productKey);
 
       // Hash password and product key
       const salt = await bcrypt.genSalt(10);

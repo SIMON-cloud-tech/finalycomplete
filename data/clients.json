@@ -4,5 +4,11 @@
     "name": "Simon Mwangangi",
     "email": "simonmbithi143@gmail.com",
     "password": "$2b$10$ZTAD7OmEAfs0Ubjp7ha2a.F0EnbOTyPNXL1/D/WTJuJHpRyBVSKs."
+  },
+  {
+    "id": 2,
+    "name": "Simon",
+    "email": "ruth@gmail.com",
+    "password": "$2b$10$iFDRmRTZBnR0mvk9qXAmE.eC1nDrxso5sb5wFPmPXMUItwOif5kbm"
   }
 ]

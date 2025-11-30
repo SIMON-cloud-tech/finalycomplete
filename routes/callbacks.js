@@ -76,14 +76,18 @@ router.post("/callback", async (req, res) => {
   }
 
   // Commission + payout
-  const price = Number(booking.price);
-  const amountPaid = Number(metadata.find(i => i.Name === "Amount")?.Value || 0);    
-    if (amountPaid !== price) {
-      console.warn(`Callback amount ${amountPaid} does not match booking price ${price}`);
-  }
-  const commissionRate = commissionConfig.commissionRate || 0.1;
-  const commissionAmount = price * commissionRate;
-  const landlordPayout = price - commissionAmount;
+const depositAmount = Number(booking.depositAmount) || 0;
+const price = Number(booking.price) || 0;
+const totalAmount = depositAmount ? price + depositAmount : price;
+
+const amountPaid = Number(metadata.find(i => i.Name === "Amount")?.Value || 0);
+if (amountPaid !== totalAmount) {
+  console.warn(`Callback amount ${amountPaid} does not match expected total ${totalAmount}`);
+}
+
+const commissionRate = commissionConfig.commissionRate || 0.1;
+const commissionAmount = totalAmount * commissionRate;
+const landlordPayout = totalAmount - commissionAmount;
 
   booking.status = "paid";
   writeJSON(bookingsPath, bookings);
@@ -118,7 +122,7 @@ router.post("/callback", async (req, res) => {
   payments.push({
     id: paymentId,
     bookingId,
-    amount: price,
+    amount: totalAmount,
     commission: commissionAmount,
     landlordPayout,
     landlordId: landlord.id,
@@ -133,7 +137,7 @@ router.post("/callback", async (req, res) => {
   sales.push({
     id: saleId,
     bookingId,
-    amount: price,
+    amount: totalAmount,
     commission: commissionAmount,
     landlordPayout,
     landlordId: landlord.id,

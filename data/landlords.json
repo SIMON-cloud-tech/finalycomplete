@@ -27,7 +27,9 @@
     "phone": "254708374149",
     "role": "landlord",
     "passwordHash": "$2b$10$Q3RLKPMl9mqRZyKK8SMTkeoMGIpL0f9rHus4R8xq90PEf3GPY1yx2",
-    "emailSent": false
+    "emailSent": false,
+    "otp": "920751",
+    "otpExpiry": 1764500471356
   },
   {
     "id": "L004",
@@ -76,7 +78,7 @@
     "passwordHash": "$2b$10$cE9E9l7tvWiA12ia3GYerOv0UXSWIBcZRa2nnuhtNPLvH0emV4fbS",
     "emailSent": false,
     "status": "signed_out",
-    "signedOutAt": "2025-11-29T14:41:47.418Z",
+    "signedOutAt": "2025-11-30T10:46:16.611Z",
     "balance": 13500
   }
 ]
