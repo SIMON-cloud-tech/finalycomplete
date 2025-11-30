@@ -1,21 +1,41 @@
+# Commercial Software License
 
-# MIT License
+Copyright (c) 2025 Simon Mwangangi. All rights reserved.
 
-Copyright (c) 2025 Simon Mwangangi
+This software and associated documentation files (the "System") are the
+intellectual property of Simon Mwangangi. By obtaining a copy of the System,
+you are granted a limited, non-exclusive, non-transferable license to use the
+System for your own business purposes, subject to the following conditions:
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Project"), to deal
-in the Project without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Project, and to permit persons to whom the Project is furnished
-to do so, subject to the following conditions:
+1. **Ownership**  
+   Simon Mwangangi retains all rights, title, and interest in and to the
+   System, including all source code, documentation, and related materials.
+   No ownership rights are transferred to the licensee.
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Project.
+2. **License Grant**  
+   The licensee may use the System internally for property management and
+   payment processing. The licensee may not copy, modify, distribute, resell,
+   sublicense, or otherwise make the System available to third parties without
+   prior written consent from Simon Mwangangi.
 
-THE PROJECT IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE PROJECT OR THE USE OR OTHER DEALINGS IN THE PROJECT
+3. **Branding**  
+   The System may be customized with the licensee’s branding for internal use.
+   Removal of branding does not transfer ownership or rights to the licensee.
+
+4. **Resale and Reuse**  
+   Simon Mwangangi reserves the right to license, resell, and maintain the
+   System for other clients. The licensee’s rights are non-exclusive.
+
+5. **Fees**  
+   Use of the System is subject to licensing fees as agreed in writing between
+   Simon Mwangangi and the licensee. Continued use requires timely payment of
+   such fees.
+
+6. **Termination**  
+   Failure to comply with these terms may result in termination of the license.
+   Upon termination, the licensee must cease all use of the System.
+
+7. **Disclaimer**  
+   The System is provided "AS IS", without warranty of any kind. Simon Mwangangi
+   shall not be liable for any damages arising from the use of the System.
+
