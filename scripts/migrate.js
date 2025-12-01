@@ -54,7 +54,6 @@ async function ensureUniqueIndexes(db) {
     })
   );
 }
-
 function toBulkOps(records) {
   // Use bulk upsert for high throughput and deduplication by id
   return records.map((r) => ({
