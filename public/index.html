@@ -2,20 +2,38 @@
   <!DOCTYPE html>
   <html lang="en">
   <head>
-<link rel="icon" type="image/jpeg" href="assets/logo.jpg">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate</title>
-       <link rel="stylesheet" href="css/styles.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%230a0a0a'/%3E%3Ctext x='50' y='70' fill='%23d4af37' font-family='Georgia,serif' font-size='78' font-weight='900' text-anchor='middle'%3EK%3C/text%3E%3C/svg%3E" type="image/svg+xml">
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Premium real estate platform connecting tenants and landlords in Kenya"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Real Estate Kenya - Find Your Perfect Home</title>
+    <link rel="stylesheet" href="css/styles.css">
     <link  rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/testimonials.css">
     <link rel="stylesheet" href="css/productGrid.css">
+    <link rel="stylesheet" href="css/footer.css">
   </head>
   <body>
   <nav class="navbar">
-    <div class="logo">
-      <img loading="lazy" src="assets/flavicon.jpg" alt="SR Logo">
-    </div>
+<div class="logo">
+  <!-- INLINE SVG LOGO – looks perfect on all screens -->
+  <svg width="180" height="60" viewBox="0 0 300 100" xmlns="http://www.w3.org/2000/svg">
+    <rect width="300" height="100" fill="#0f0f0f"/>
+    <g fill="none" stroke="#d4af37" stroke-width="6" stroke-linecap="round">
+      <path d="M80 30 L80 70 L110 50 L140 70 L140 30"/>
+      <path d="M60 70 L160 70"/>
+      <path d="M80 30 L110 10 L140 30"/>
+    </g>
+    <text x="165" y="58" fill="#d4af37" font-family="Playfair Display, Georgia, serif" font-size="36" font-weight="700" letter-spacing="4">
+      KENLUXE
+    </text>
+    <text x="165" y="78" fill="#94a3b8" font-family="Inter, Arial, sans-serif" font-size="11" letter-spacing="3">
+      HOMES OF DISTINCTION
+    </text>
+  </svg>
+</div>
     <div class="menu-toggle" id="menu-toggle">☰</div>
 
     <ul class="menu" id="menu">
@@ -42,86 +60,602 @@
     </li>
     </ul>
   </nav>
-  <section class="overlay">
-    <div class="overlay-text">
-      <p>Welcome to our housing platform where we relieve you of the burden of having to struggle to find an house. From paying landlords to delivering best quality houses for our tenants at a click of a button.</p>
-      <h3><i>Join us today as</i></h3>
-      <div class="buttons">
-        <button id="tenant"><A href="html/shop.html">Tenant</A></button>
-        <button id="landlord"><a href="html/landlord-registration.html" target="_blank">Landlord</a></button>
-      </div>
+<section class="hero-slider">
+  <!-- Slides -->
+ <!-- Slide 1 -->
+<div class="slide active">
+  <img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1920&h=1080&fit=crop" alt="Nairobi Skyline">
+  <div class="overlay-text">
+    <h1>Live Above the City, Beyond Expectations</h1>
+    <p>Elegant penthouses and sky-high apartments in Westlands, Kilimani, and Kileleshwa. Wake up to breathtaking views of Nairobi National Park and the Ngong Hills. 24/7 concierge, infinity pools, private gyms, and biometric security — this isn’t just a home, it’s a lifestyle reserved for those who refuse to settle.</p>
+    <div class="buttons">
+      <button class="btn-primary"><a href="html/shop.html">Browse as Tenant</a></button>
+      <button class="btn-secondary"><a href="html/landlord-registration.html" target="_blank">List as Landlord</a></button>
     </div>
-  </section>
+  </div>
+</div>
+
+<!-- Slide 2 -->
+<div class="slide">
+  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=1920&h=1080&fit=crop" alt="Coastal Villa">
+  <div class="overlay-text">
+    <h1>Your Private Oceanfront Sanctuary Awaits</h1>
+    <p>Escape to beachfront villas and luxury beach houses in Diani, Nyali, and Vipingo Ridge where the Indian Ocean kisses your doorstep every morning. Private pools, Swahili architecture, direct beach access, and staff quarters included. Whether you crave serenity or sunset parties, your coastal legacy begins here.</p>
+    <div class="buttons">
+      <button class="btn-primary"><a href="html/shop.html">Explore Houses</a></button>
+      <button class="btn-secondary"><a href="html/landlord-registration.html" target="_blank">Earn as Landlord</a></button>
+    </div>
+  </div>
+</div>
+
+<!-- Slide 3 -->
+<div class="slide">
+  <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1920&h=1080&fit=crop" alt="Karen Mansion">
+  <div class="overlay-text">
+    <h1>Timeless Elegance in Nairobi’s Most Prestigious Addresses</h1>
+    <p>Gracious 5–10 bedroom ambassadorial residences nestled in 1–5 acres of manicured gardens in Karen, Runda, and Muthaiga. Grand ballrooms, wine cellars, staff quarters, helipads, and UN blue-zone security. For families and executives who demand privacy, prestige, and a legacy that spans generations.</p>
+    <div class="buttons">
+      <button class="btn-primary"><a href="html/shop.html">Start Your Journey</a></button>
+      <button class="btn-secondary"><a href="html/landlord-registration.html" target="_blank">Partner With Us</a></button>
+    </div>
+  </div>
+</div>
+
+  <!-- Navigation Dots -->
+  <div class="dots">
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
+  </div>
+
+  <!-- Arrows -->
+  <div class="arrow left" onclick="changeSlide(-1)">❮</div>
+  <div class="arrow right" onclick="changeSlide(1)">❯</div>
+</section>
   <hr class="section-border">
 <section class="about">
-  <h2>About Us</h2>
-  <p>
-    We are dedicated to building secure, scalable, and user‑friendly platforms that empower communities and businesses to thrive. 
-    Our mission is to combine innovation with integrity — delivering solutions that are not only technologically advanced but also 
-    transparent, auditable, and designed with people in mind. From real estate to logistics, education, and beyond, we craft systems 
-    that simplify complexity, foster trust, and create lasting impact.
-  </p>
+  <div class="about-container">
+    
+    <!-- Text Side -->
+    <div class="about-text">
+      <h2>Elevating Real Estate in Kenya</h2>
+      <p>
+        We are not just a platform — we are the bridge between Kenya’s most discerning tenants and its most trusted landlords. 
+        Founded with a vision to eliminate the stress, delays, and distrust that have long plagued the rental market, 
+        we bring transparency, speed, and security to every transaction.
+      </p>
+      <p>
+        From the bustling streets of Nairobi to the serene coasts of Diani, our curated portfolio features only verified, 
+        high-quality homes — each inspected, photographed professionally, and listed with complete honesty. 
+        Landlords enjoy maximum exposure and guaranteed payments. Tenants enjoy peace of mind and homes they’re proud to call their own.
+      </p>
+      <p>
+        <strong>We don’t just list properties. We build relationships.</strong><br>
+        Join thousands of happy tenants and landlords who have made their move with confidence — because in Kenya, 
+        finding the perfect home should be as beautiful as living in it.
+      </p>
+    </div>
+
+    <!-- Image Side – Stunning cloud image (free to use) -->
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=1000&fit=crop&crop=center" 
+           alt="Modern luxury living room in Kenya" 
+           loading="lazy">
+    </div>
+  </div>
 </section>
 <hr class="section-border">
+<!-- OUR SERVICES SECTION -->
+<section class="services" id="services">
+  <div class="services-bg"></div>
+  <div class="services-container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-subtitle">Everything you need for a seamless real estate experience</p>
 
-<!---Product grid here------>
-<section id="productGrid" class="product-grid"></section>
+    <div class="services-grid">
+      <!-- Service 1 -->
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-home"></i></div>
+        <h3>Premium Property Listings</h3>
+        <p>Only verified, professionally photographed homes from trusted landlords across Nairobi, Mombasa, Kisumu and beyond.</p>
+      </div>
+
+      <!-- Service 2 -->
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-user-shield"></i></div>
+        <h3>Member Protection</h3>
+        <p>Secure payments, verified identities, and escrow protection — your rent and deposit are 100% safe with us.</p>
+      </div>
+
+      <!-- Service 3 -->
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-headset"></i></div>
+        <h3>24/7 Live Support</h3>
+        <p>Our dedicated team is available round the clock via chat, phone, and WhatsApp to assist you instantly.</p>
+      </div>
+
+      <!-- Service 4 -->
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-search"></i></div>
+        <h3>Advanced Smart Search</h3>
+        <p>Filter by price, bedrooms, amenities, pet policy, furnished status, and more — find your perfect home in seconds.</p>
+      </div>
+
+      <!-- Service 5 – Recommended -->
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-file-contract"></i></div>
+        <h3>Digital Lease Signing</h3>
+        <p>Sign your tenancy agreement online in minutes — legally binding, paperless, and instantly delivered.</p>
+      </div>
+
+      <!-- Service 6 – Recommended -->
+      <div class="service-card">
+        <div class="icon"><i class="fas fa-bell"></i></div>
+        <h3>Smart Move-In Alerts</h3>
+        <p>Get instant notifications for new listings matching your criteria, price drops, and landlord responses.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED LISTINGS – INFINITE AUTO-SLIDING CAROUSEL -->
+<section class="featured-listings">
+  <div class="container">
+    <h2 class="section-title">Featured Properties</h2>
+    <p class="section-subtitle">Hand-picked homes ready for you today</p>
+
+    <div class="carousel" id="featuredCarousel">
+      <div class="carousel-track" id="track">
+        <!-- Card 1 -->
+        <div class="property-card">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&h=400&fit=crop" alt="Westlands Penthouse">
+          <div class="card-content">
+            <h3>Luxury Penthouse in Westlands</h3>
+            <p>Elegant 3-bedroom with panoramic city views, infinity pool & concierge</p>
+            <div class="icons">
+              <div class="icon-item">
+                <i class="fas fa-bed"></i>
+                <span>3 Beds</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Westlands</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-tag"></i>
+                <span>KSh 350,000/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="property-card">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&h=400&fit=crop" alt="Diani Beach Villa">
+          <div class="card-content">
+            <h3>Beachfront Villa in Diani</h3>
+            <p>Private 4-bedroom villa with pool and direct ocean access</p>
+            <div class="icons">
+              <div class="icon-item">
+                <i class="fas fa-bed"></i>
+                <span>4 Beds</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Diani Beach</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-tag"></i>
+                <span>KSh 450,000/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="property-card">
+          <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=600&h=400&fit=crop" alt="Karen Mansion">
+          <div class="card-content">
+            <h3>Ambassadorial Residence in Karen</h3>
+            <p>6-bedroom mansion on 2 acres with helipad and wine cellar</p>
+            <div class="icons">
+              <div class="icon-item">
+                <i class="fas fa-bed"></i>
+                <span>6 Beds</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Karen</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-tag"></i>
+                <span>KSh 1.2M/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="property-card">
+          <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=600&h=400&fit=crop" alt="Lavington Apartment">
+          <div class="card-content">
+            <h3>Modern Apartment in Lavington</h3>
+            <p>Fully furnished 2-bedroom with gym, rooftop terrace & 24/7 security</p>
+            <div class="icons">
+              <div class="icon-item">
+                <i class="fas fa-bed"></i>
+                <span>2 Beds</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Lavington</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-tag"></i>
+                <span>KSh 180,000/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="property-card">
+          <img src="https://images.unsplash.com/photo-1602940659805-770d1b3b9910?w=600&h=400&fit=crop" alt="Runda Estate">
+          <div class="card-content">
+            <h3>Executive Home in Runda</h3>
+            <p>5-bedroom gated estate with staff quarters and private garden</p>
+            <div class="icons">
+              <div class="icon-item">
+                <i class="fas fa-bed"></i>
+                <span>5 Beds</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>Runda</span>
+              </div>
+              <div class="icon-item">
+                <i class="fas fa-tag"></i>
+                <span>KSh 650,000/mo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Arrows -->
+      <button class="arrow left" id="prevBtn">❮</button>
+      <button class="arrow right" id="nextBtn">❯</button>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY SECTION – 6 IMAGE CARDS WITH HOVER OVERLAY -->
+<section class="gallery">
+  <div class="gallery-container">
+    <h2 class="section-title">Explore Our Collection</h2>
+    <p class="section-subtitle">Hand-picked luxury homes across Kenya</p>
+
+    <div class="gallery-grid">
+      <!-- Card 1 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=1000&fit=crop" alt="Westlands Penthouse">
+        <div class="overlay">
+          <h3>Luxury Penthouse</h3>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Westlands, Nairobi</p>
+          <p class="price">KSh 450,000/month</p>
+          <p class="desc">4-bedroom sky villa with 360° city views, infinity pool & private elevator</p>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=800&h=1000&fit=crop" alt="Diani Beach Villa">
+        <div class="overlay">
+          <h3>Oceanfront Villa</h3>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Diani Beach</p>
+          <p class="price">KSh 380,000/month</p>
+          <p class="desc">Private beach access, infinity pool, Swahili design, 5 ensuite bedrooms</p>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&h=1000&fit=crop" alt="Karen Mansion">
+        <div class="overlay">
+          <h3>Ambassadorial Residence</h3>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Karen, Nairobi</p>
+          <p class="price">KSh 1.8M/month</p>
+          <p class="desc">10-bedroom estate on 3 acres with helipad, wine cellar & staff quarters</p>
+        </div>
+      </div>
+
+      <!-- Card 4 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&h=1000&fit=crop" alt="Lavington Apartment">
+        <div class="overlay">
+          <h3>Modern Lavington Loft</h3>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Lavington</p>
+          <p class="price">KSh 220,000/month</p>
+          <p class="desc">Fully furnished 3-bed with rooftop terrace, gym & 24/7 security</p>
+        </div>
+      </div>
+
+      <!-- Card 5 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1560185127-6ed189bf02f4?w=800&h=1000&fit=crop&crop=entropy" alt="Luxury Runda Estate">
+        <div class="overlay">
+          <h3>Gated Estate in Runda</h3>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Runda</p>
+          <p class="price">KSh 750,000/month</p>
+          <p class="desc">6-bedroom family home with mature gardens, pool & borehole</p>
+        </div>
+      </div>
+
+      <!-- Card 6 -->
+      <div class="gallery-card">
+        <img src="https://images.unsplash.com/photo-1513584684374-8bab748fbf90?w=800&h=1000&fit=crop" alt="Nyali Beach House">
+        <div class="overlay">
+          <h3>Nyali Beach House</h3>
+          <p class="location"><i class="fas fa-map-marker-alt"></i> Nyali, Mombasa</p>
+          <p class="price">KSh 320,000/month</p>
+          <p class="desc">Direct beach access, 4 bedrooms, rooftop jacuzzi, modern coastal design</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY CHOOSE US / FEATURES SECTION -->
+<section class="features">
+  <div class="features-bg"></div>
+  <div class="features-container">
+    <h2 class="section-title">Why Thousands Trust Us</h2>
+    <p class="section-subtitle">Everything you need for a perfect home search</p>
+
+    <div class="features-grid">
+      <!-- Card 1 – Members Support -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fas fa-headset"></i>
+        </div>
+        <h3>24/7 Member Support</h3>
+        <p>Our dedicated team is available via phone, WhatsApp, and live chat — day or night — to guide you through every step of your journey.</p>
+      </div>
+
+      <!-- Card 2 – Property Listings -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fas fa-home"></i>
+        </div>
+        <h3>Premium Verified Listings</h3>
+        <p>Every property is personally inspected and professionally photographed. Only the finest homes from trusted landlords make it to our platform.</p>
+      </div>
+
+      <!-- Card 3 – Advanced Search -->
+      <div class="feature-card">
+        <div class="icon-circle">
+          <i class="fas fa-search"></i>
+        </div>
+        <h3>Advanced Smart Search</h3>
+        <p>Filter by price, bedrooms, location, amenities, pet-friendly, furnished status, and more — find your perfect match in seconds.</p>
+      </div>
+    </div>
+
+    <!-- Call to Action Button -->
+    <a href="html/shop.html" class="cta-button">
+      <span>Search Houses Now</span>
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</section>
 
 <hr class="section-border">
-  <section class="contact">
-    <h1>CONTACT US</h1>
+ <!-- CONTACT US SECTION – WITH PROPER FONT AWESOME ICONS -->
+<section class="contact">
+  <div class="contact-container">
+    <h1>Contact Us</h1>
     <p><i>We always respond to our clients in minutes</i></p>
     <hr class="section-divider">
-    <div class="contact-container">
-      <div class="contactform">
+
+    <div class="contact-wrapper">
+      <!-- Contact Form -->
+      <div class="contact-form">
         <form id="contactForm">
-          <label>Name</label>
-          <input type="text" id="name" placeholder="Full Name" required />
-          <label>Email</label>
-          <input type="text" id="email" placeholder="Email Address" required />
-          <label>Comment</label>
-          <textarea id="comment" placeholder="Write your comments" required></textarea>
-          <label style="color: #333;">Enquiry</label>
-          <textarea id="enquiry" placeholder="Write your enquiry" required> </textarea>
-          <button type="submit">Submit</button>
+          <div class="input-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" placeholder="Enter your full name" required />
+          </div>
+
+          <div class="input-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" placeholder="you@example.com" required />
+          </div>
+
+          <div class="input-group">
+            <label for="comment">Comment / Message</label>
+            <textarea id="comment" rows="4" placeholder="Write your message..." required></textarea>
+          </div>
+
+          <div class="input-group">
+            <label for="enquiry">Specific Enquiry</label>
+            <textarea id="enquiry" rows="3" placeholder="e.g. I'm looking for a 3-bedroom in Westlands..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
         </form>
       </div>
-<div class="address">
-  <p>
-    We’re here to answer your questions and help you find the right solutions.
-    Reach us using the details below.
-  </p>
-  <ul class="contact-list">
-    <li>
-      <span class="icon">&#128205;</span> <!-- 📍 Location pin -->
-      <b>Location:</b> Kakamega, Kenya
-    </li>
-    <li>
-      <span class="icon">&#128222;</span> <!-- ☎ Telephone receiver -->
-      <b>Phone:</b> +254 700 123 456
-    </li>
-    <li>
-      <span class="icon">&#128231;</span> <!-- ✉ Envelope -->
-      <b>Email:</b> info@mysite.com
-    </li>
-    <li>
-      <span class="icon">&#127760;</span> <!-- 🌐 Globe -->
-      <b>Website:</b> <a href="#" target="_blank">www.realestates.com</a>
-    </li>
-  </ul>
-</div>
+
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <h3>We’re Here to Help</h3>
+        <p>Reach out anytime — our team responds within minutes.</p>
+
+        <ul class="contact-list">
+          <li>
+            <i class="fas fa-map-marker-alt icon"></i>
+            <div>
+              <strong>Location</strong><br>
+              Kakamega, Kenya
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-phone-alt icon"></i>
+            <div>
+              <strong>Phone</strong><br>
+              <a href="tel:+254700123456">+254 700 123 456</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-envelope icon"></i>
+            <div>
+              <strong>Email</strong><br>
+              <a href="mailto:info@mysite.com">info@mysite.com</a>
+            </div>
+          </li>
+          <li>
+            <i class="fas fa-globe icon"></i>
+            <div>
+              <strong>Website</strong><br>
+              <a href="https://www.realestates.com" target="_blank">www.realestates.com</a>
+            </div>
+          </li>
+        </ul>
+      </div>
     </div>
-    </section>
+  </div>
+</section>
+
   <hr class="section-border">
-  <section id="testimonials">
-    <h1><i>OUR CLIENTELE</i></h1>
-    <p>Discover what our customers have to say about us</p>
-  <div class="testimonialsGrid"></div>
+<!-- TESTIMONIALS SECTION – LUXURY EDITION -->
+<section class="testimonials">
+  <div class="testimonials-bg"></div>
+  <div class="testimonials-container">
+    <h1 class="section-title">What Our Clients Say</h1>
+    <p class="section-subtitle">Real stories from real tenants and landlords</p>
+
+    <div class="testimonials-grid" id="testimonialsGrid">
+      <!-- Testimonials will be injected here by JS -->
+    </div>
+
+    <!-- Feedback Button -->
+    <button class="feedback-btn" id="openFeedback">
+      <i class="fas fa-plus"></i> Share Your Experience
+    </button>
+  </div>
+
+  <!-- Hidden Feedback Form (Popup style) -->
+  <div class="feedback-modal" id="feedbackModal">
+    <div class="feedback-card">
+      <span class="close-btn" id="closeFeedback">×</span>
+      <h3>Tell Us About Your Experience</h3>
+      <form id="feedbackForm">
+        <input type="text" id="clientName" placeholder="Your Name" required />
+        <input type="text" id="clientLocation" placeholder="e.g. Westlands, Nairobi" required />
+        <textarea id="clientMessage" rows="5" placeholder="Your honest feedback..." required></textarea>
+        <button type="submit">Submit Review</button>
+      </form>
+    </div>
+  </div>
 </section>
 <hr class="section-border">
-  <footer>
-    <p>&copy; COPYRIGHTS  <span id="year"></span> REAL ESTATE MANAGEMENT PLATFORM ALL RIGHTS RESERVED</p>
-  </footer>
+<footer class="footer">
+  <div class="footer-container">
+    
+    <!-- Brand & Description -->
+    <div class="footer-col">
+      <h3>Real Estate Kenya</h3>
+      <p>Kenya’s most trusted platform for premium rentals. From Westlands penthouses to Diani beachfront villas — we deliver homes, not just listings.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        <a href="#"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Quick Links -->
+    <div class="footer-col">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="html/shop.html">Browse Listings</a></li>
+        <li><a href="html/landlord-registration.html">List Your Property</a></li>
+        <li><a href="html/contact.html">Contact Us</a></li>
+        <li><a href="html/terms.html">Terms & Conditions</a></li>
+        <li><a href="html/privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+
+    <!-- Contact Info -->
+    <div class="footer-col">
+      <h4>Contact Info</h4>
+      <ul class="contact-info">
+        <li><i class="fas fa-map-marker-alt"></i> Kakamega, Kenya</li>
+        <li><i class="fas fa-phone"></i> +254 700 123 456</li>
+        <li><i class="fas fa-envelope"></i> info@realestate.co.ke</li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+<div class="footer-col">
+  <h4>Stay Updated</h4>
+  <p>Get exclusive listings and market insights delivered to your inbox</p>
+  
+  <form class="newsletter-form">
+    <div class="newsletter-wrapper">
+      <input type="email" placeholder="Enter your email address" required>
+      <button type="submit">
+        <i class="fas fa-arrow-right"></i>
+      </button>
+    </div>
+  </form>
+</div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; <span id="year"></span> Real Estate Kenya. All rights reserved.</p>
+  </div>
+</footer>
+<script>
+// Auto-sliding Hero with Dots & Arrows
+let currentSlide = 0;
+const slides = document.querySelectorAll('.slide');
+const dots = document.querySelectorAll('.dot');
+const totalSlides = slides.length;
+
+function showSlide(n) {
+  currentSlide = (n + totalSlides) % totalSlides;
+  slides.forEach((slide, i) => {
+    slide.classList.toggle('active', i === currentSlide);
+  });
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === currentSlide);
+  });
+}
+
+function changeSlide(direction) {
+  showSlide(currentSlide + direction);
+}
+
+// Auto-play every 6 seconds
+let autoPlay = setInterval(() => changeSlide(1), 6000);
+
+// Pause on hover
+document.querySelector('.hero-slider').addEventListener('mouseenter', () => clearInterval(autoPlay));
+document.querySelector('.hero-slider').addEventListener('mouseleave', () => autoPlay = setInterval(() => changeSlide(1), 6000));
+
+// Dot click
+dots.forEach((dot, i) => {
+  dot.addEventListener('click', () => showSlide(i));
+});
+
+// Initialize
+showSlide(0);
+
+document.getElementById('year').textContent = new Date().getFullYear();
+</script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.0.6/purify.min.js"></script>
 <script src="js/navbar.js"></script>
 <script src="js/pageContact.js"></script>
