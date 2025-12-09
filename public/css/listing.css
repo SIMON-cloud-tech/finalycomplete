@@ -1,137 +1,210 @@
-/* Form styling */
+/* Form styling – now matches your dark dashboard */
 .listing-form {
-  max-width: 600px;
-  margin: 20px auto;
-  padding: 20px;
-  background: #ffffff;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-  font-family: "Segoe UI", sans-serif;
+  max-width: 700px;
+  margin: 30px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  font-family: 'Times New Roman', Times, serif;
+  color: #e2e8f0;
 }
 
 .listing-form .form-row {
   display: flex;
   flex-direction: column;
-  margin-bottom: 15px;
+  margin-bottom: 20px;
 }
 
 .listing-form label {
   font-weight: 600;
-  margin-bottom: 6px;
-  color: #333;
+  margin-bottom: 8px;
+  color: #93c5fd;
+  font-size: 1.1rem;
 }
 
 .listing-form input,
-.listing-form textarea {
-  padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  font-size: 14px;
-  transition: border-color 0.2s;
+.listing-form textarea,
+.listing-form select {
+  padding: 14px 18px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  color: white;
+  font-size: 16px;
+  transition: all 0.3s ease;
 }
-.listing-form select{
-  padding: 10px;
-  font-size: 14px;
-  transition: border-color 0.2s;
-  border-radius: 2px;
-  background-color: white;
-  border: 1px solid rgba(0, 0, 0, 0.274);
+
+.listing-form input::placeholder,
+.listing-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.5);
 }
+
 .listing-form input:focus,
-.listing-form textarea:focus {
-  border-color: #007bff;
+.listing-form textarea:focus,
+.listing-form select:focus {
   outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.3);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.listing-form select {
+  cursor: pointer;
 }
 
 .listing-form button {
-  background: #007bff;
-  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
   font-weight: 600;
-  padding: 10px 16px;
+  padding: 16px 32px;
   border: none;
-  border-radius: 6px;
+  border-radius: 50px;
   cursor: pointer;
-  transition: background 0.2s;
+  font-size: 1.1rem;
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+  margin-top: 10px;
 }
 
 .listing-form button:hover {
-  background: #0056b3;
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(59, 130, 246, 0.5);
 }
 
-/* Search bar styling */
+/* Search bar – now premium */
 .search-bar {
   display: flex;
-  gap: 10px;
-  margin: 20px auto;
-  max-width: 600px;
+  gap: 12px;
+  margin: 30px auto;
+  max-width: 700px;
 }
 
 .search-bar input {
   flex: 1;
-  padding: 10px;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  padding: 16px 20px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50px;
+  color: white;
+  font-size: 17px;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.search-bar input:focus {
+  outline: none;
+  border-color: #60a5fa;
+  box-shadow: 0 0 0 4px rgba(96, 165, 250, 0.3);
 }
 
 .search-bar button {
-  padding: 10px 14px;
-  border-radius: 6px;
+  padding: 0 28px;
+  border-radius: 50px;
   border: none;
-  background: #007bff;
-  color: #fff;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
   cursor: pointer;
+  font-size: 18px;
+  transition: all 0.3s;
+  box-shadow: 0 8px 20px rgba(59, 130, 246, 0.3);
 }
 
 .search-bar button:hover {
-  background: #0056b3;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(59, 130, 246, 0.4);
 }
 
-/* Table styling */
+/* Table – glassmorphism style */
 .listings-table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 20px;
-}
-
-.listings-table th,
-.listings-table td {
-  border: 1px solid #ddd;
-  padding: 10px;
-  text-align: left;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 30px;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
 }
 
 .listings-table th {
-  background: #f8f9fa;
+  background: linear-gradient(135deg, #3b82f6, #60a5fa);
+  color: white;
+  padding: 18px 20px;
+  text-align: left;
   font-weight: 600;
+  font-size: 1.1rem;
 }
 
-/* Grid styling */
+.listings-table td {
+  padding: 16px 20px;
+  color: #e2e8f0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.listings-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.listings-table tr:hover {
+  background: rgba(96, 165, 250, 0.2);
+  transition: 0.3s;
+}
+
+/* House grid cards – premium glass style */
 .house-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-  gap: 16px;
-  margin-top: 20px;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 28px;
+  margin-top: 30px;
 }
 
 .house-card {
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
   overflow: hidden;
-  transition: transform 0.2s;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s ease;
+  cursor: pointer;
 }
 
 .house-card:hover {
-  transform: translateY(-4px);
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
 }
 
 .house-card img {
   width: 100%;
-  height: 120px;
+  height: 180px;
   object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.house-card:hover img {
+  transform: scale(1.05);
 }
 
 .house-info {
-  padding: 10px;
-  font-size: 14px;
+  padding: 20px;
+  color: #e2e8f0;
+}
+
+.house-info h3 {
+  margin: 0 0 10px;
+  font-size: 1.3rem;
+  color: #93c5fd;
+}
+
+.house-info p {
+  margin: 6px 0;
+  opacity: 0.9;
+  font-size: 0.95rem;
 }
