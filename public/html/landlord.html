@@ -1,10 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<link rel="icon" type="image/jpeg" href="../assets/logo.jpg">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" 
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
+      crossorigin="anonymous" referrerpolicy="no-referrer" />
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Modular Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
   <link rel="stylesheet" href="../css/dashboard.css" />
   <link rel="stylesheet" href="../css/listing.css" />
  </head>
@@ -14,18 +17,33 @@
     <h2>Company Dashboard</h2>
   </header>
 
-  <div class="dashboard">
-    <aside class="sidebar" id="sidebar">
-      <ul>
-        <li data-content="Listings">List House</li>
-        <li data-content="Payments">Payments</li>
-        <li data-content="Bookings">Bookings</li>
-        <li data-content="Valuation">Valuation</li>
-        <li data-content="Analytics">Analytics</li>
-        <li data-content="Settings">Settings</li>
-        <li data-content="SignOut">Sign Out</li> 
-      </ul>
-    </aside>
+<div class="dashboard">
+  <aside class="sidebar" id="sidebar">
+    <ul>
+      <li data-content="Listings">
+        <i class="material-icons">add_home</i> List House
+      </li>
+      <li data-content="Payments">
+        <i class="material-icons">payment</i> Payments
+      </li>
+      <li data-content="Bookings">
+        <i class="material-icons">event_note</i> Bookings
+      </li>
+      <li data-content="Valuation">
+        <i class="material-icons">trending_up</i> Valuation
+      </li>
+      <li data-content="Analytics">
+        <i class="material-icons">bar_chart</i> Analytics
+      </li>
+      <li data-content="Settings">
+        <i class="material-icons">settings</i> Settings
+      </li>
+      <li data-content="SignOut">
+        <i class="material-icons">logout</i> Sign Out
+      </li>
+    </ul>
+  </aside>
+  <!-- rest of your dashboard -->
 
     <main class="main-panel">
       <section class="company-name"><p>Welcome back<span id="landlordName"></span></p></section>
