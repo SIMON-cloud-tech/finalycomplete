@@ -13,6 +13,7 @@ app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
 /* ---------------- Core Routes ---------------- */
 const paymentRoutes = require("./routes/payment");
+const galleryRoute = require('./routes/gallery');
 const contactRoutes = require("./routes/contact");
 const bookRoutes = require("./routes/book");
 const setupRoute = require("./routes/setup");
@@ -22,6 +23,7 @@ const clientLoginRoutes = require("./routes/client-login");
 const clientDashboardRoutes = require("./routes/client-dashboard");
 const listingsRoutes = require("./routes/listings");
 const authRoutes = require('./routes/authRoutes');
+const featuredRoute = require('./routes/featured');
 
 
 /* ---------------- Business Dashboard Routes ---------------- */
@@ -85,6 +87,8 @@ app.use("/api", clientLoginRoutes);
 app.use("/api", clientDashboardRoutes);
 app.use("/api", listingsRoutes);
 app.use('/api/auth', authRoutes);
+app.use(galleryRoute);
+app.use(featuredRoute);
 
 // Business Dashboard
 app.use("/api", businessLandlordsRoute);
